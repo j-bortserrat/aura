@@ -78,6 +78,7 @@ tabs.forEach(tab => {
     const target = tab.dataset.tab;
     tabs.forEach(t => t.classList.toggle('is-active', t === tab));
     panels.forEach(p => p.classList.toggle('is-active', p.dataset.panel === target));
+    tab.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
   });
 });
 

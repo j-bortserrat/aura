@@ -1248,3 +1248,25 @@ body.ficha-open { overflow: hidden; }
 .reservas__form textarea::placeholder { color: rgba(237, 218, 214,.4); }
 .reservas__form textarea:focus { outline: none; border-color: var(--pink); background: rgba(237, 218, 214,.1); }
 .reservas__form input#proponerFechaTxt { cursor: pointer; }
+
+/* =========================================
+   MÓVIL: carta más ligera
+   ========================================= */
+@media (max-width: 700px) {
+  .whatsapp-float, .instagram-float { display: none; }
+
+  /* filtros y categorías: una sola barra que se desliza a un lado */
+  .menu__filters, .menu__tabs {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    margin-left: -4px; margin-right: -4px; padding-left: 4px; padding-right: 4px;
+  }
+  .menu__filters::-webkit-scrollbar, .menu__tabs::-webkit-scrollbar { display: none; }
+  .menu__filter, .menu__tab { flex: none; white-space: nowrap; }
+  .menu__filters { margin-bottom: 14px; padding-bottom: 2px; }
+  .menu__tabs { margin-bottom: 22px; padding-bottom: 16px; }
+}
