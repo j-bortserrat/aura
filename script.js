@@ -1088,3 +1088,17 @@ const CARTA_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1PHh0xQYdxf3
     status.hidden = false;
   });
 })();
+
+// ---------- Vídeo del hero: algunos móviles (modo ahorro de batería, ahorro de datos) ----------
+// bloquean el autoplay. Se reintenta al cargar y, si sigue bloqueado, con el primer toque.
+(function () {
+  const v = document.querySelector('.hero__video');
+  if (!v) return;
+  v.muted = true;
+  v.setAttribute('webkit-playsinline', '');
+  const intentar = () => v.play().catch(() => {});
+  intentar();
+  if (v.paused) {
+    ['touchstart', 'click', 'scroll'].forEach((ev) => document.addEventListener(ev, () => { if (v.paused) intentar(); }, { once: true, passive: true }));
+  }
+})();
