@@ -23,8 +23,8 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400..500&family=Archivo:ital,wdth,wght@0,90,300..700;1,90,300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=1788799778" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,6 +38,8 @@
     "hasMenu": "carta.html",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Carrer de la Reina Na Germana, 9",
+      "postalCode": "46005",
       "addressLocality": "Valencia",
       "addressRegion": "Comunidad Valenciana",
       "addressCountry": "ES"
@@ -66,15 +68,12 @@
   <!-- NAVIGATION -->
   <header class="nav" id="nav">
     <a href="index.html" class="nav__logo" aria-label="AURA inicio">
-      <svg viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <text x="60" y="36" text-anchor="middle" font-family="Dancing Script, cursive" font-size="34" font-weight="700" fill="currentColor">AU.RA</text>
-      </svg>
+      <img src="assets/brand/logo-wordmark-pink-trimmed.png" alt="AURA" width="154" height="48" />
     </a>
     <nav class="nav__links" id="navLinks" aria-label="Principal">
       <a href="index.html">Inicio</a>
       <a href="carta.html">Carta</a>
-      <a href="galeria.html">Galería</a>
-      <a href="talleres.html">Talleres</a>
+      <a href="eventos.html">Eventos</a>
       <a href="visitanos.html">Cómo llegar</a>
     </nav>
     <div class="nav__right">
@@ -94,17 +93,17 @@
       <div class="container legal">
         <p class="eyebrow">Legal</p>
         <h2>Política de privacidad</h2>
-        <p class="legal__updated">Última actualización: 26 de agosto de 2026</p>
+        <p class="legal__updated">Última actualización: 31 de agosto de 2026</p>
         <h3>Responsable del tratamiento</h3>
         <p>Responsable: <span class="pending">[Titular — pendiente]</span>, con domicilio en <span class="pending">[dirección completa — pendiente; el sitio solo tiene confirmada la zona, Ruzafa, Valencia]</span>. De acuerdo con el RGPD (UE 2016/679) y la LOPDGDD 3/2018.</p>
         <h3>Datos que tratamos</h3>
-        <p>Este sitio no dispone de servidor propio ni almacena los datos que introduces. El formulario de la sección «Reservas» solo compone un mensaje de WhatsApp en tu propio dispositivo: al enviarlo, esos datos (nombre, personas, fecha, hora y comentario) se transmiten directamente a AURA por WhatsApp, fuera de este sitio. La comunicación con el negocio también puede realizarse por teléfono o Instagram. Únicamente se tratan datos técnicos de navegación (ver <a href="cookies.html">Política de cookies</a>).</p>
+        <p>Este sitio no tiene servidor propio, pero el formulario de «Reservas» sí envía tus datos a un servicio en la nube para comprobar disponibilidad y confirmar la mesa al instante: nombre, teléfono, fecha, hora, personas y comentario se registran en una hoja de cálculo de Google y se crea un evento con esos datos en el Google Calendar de AURA. Si el grupo es de más de 4 personas, o no queda mesa disponible en ese horario, la reserva se gestiona en su lugar por WhatsApp: el formulario compone el mensaje en tu propio dispositivo y esos datos se transmiten directamente a AURA por WhatsApp, fuera de este sitio. La comunicación con el negocio también puede realizarse por teléfono o Instagram. Además, se tratan datos técnicos de navegación (ver <a href="cookies.html">Política de cookies</a>).</p>
         <h3>Finalidad y legitimación</h3>
-        <p>Los datos técnicos se utilizan para el correcto funcionamiento del sitio, sobre la base del interés legítimo y, para las cookies no esenciales, de tu consentimiento.</p>
+        <p>Los datos de reservas se usan únicamente para gestionar tu mesa, sobre la base de la ejecución de esa solicitud. Los datos técnicos se utilizan para el correcto funcionamiento del sitio, sobre la base del interés legítimo y, para las cookies no esenciales, de tu consentimiento.</p>
         <h3>Plazo de conservación</h3>
-        <p>Tu preferencia sobre cookies se guarda en tu propio navegador (no en un servidor) hasta que la cambies o la borres. Los mensajes que envías por WhatsApp, teléfono o Instagram se conservan según las políticas de esas plataformas, ajenas a este sitio: AURA no guarda una copia propia.</p>
+        <p>Los datos de una reserva confirmada automáticamente (nombre, teléfono, fecha, hora, personas, comentario) se conservan en la hoja de cálculo y el Calendar de AURA mientras sean necesarios para gestionarla y un tiempo razonable después por si surge alguna incidencia; puedes pedir que se eliminen antes escribiendo al responsable. Tu preferencia sobre cookies se guarda en tu propio navegador (no en un servidor) hasta que la cambies o la borres. Los mensajes que envías por WhatsApp, teléfono o Instagram se conservan según las políticas de esas plataformas, ajenas a este sitio.</p>
         <h3>Destinatarios y transferencias internacionales</h3>
-        <p>Si aceptas las cookies no esenciales, el mapa incrustado de la sección «Cómo llegar» puede transferir datos técnicos de navegación a Google LLC (Estados Unidos), acogido a los mecanismos de transferencia internacional previstos por el RGPD. Las reservas por WhatsApp las gestiona directamente Meta/WhatsApp Ireland Limited, conforme a su propia política de privacidad. AURA no vende ni cede tus datos a nadie más.</p>
+        <p>Los datos de las reservas confirmadas automáticamente se guardan en Google Sheets y Google Calendar, de Google LLC (Estados Unidos), acogido a los mecanismos de transferencia internacional previstos por el RGPD. Si aceptas las cookies no esenciales, el mapa incrustado de la sección «Cómo llegar» también puede transferir datos técnicos de navegación a Google. Las reservas gestionadas por WhatsApp las trata directamente Meta/WhatsApp Ireland Limited, conforme a su propia política de privacidad. AURA no vende ni cede tus datos a nadie más.</p>
         <h3>Tus derechos</h3>
         <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo al responsable. También puedes reclamar ante la <a href="https://www.aepd.es" target="_blank" rel="noopener">Agencia Española de Protección de Datos</a>.</p>
         <p class="pending">Datos del responsable (razón social, NIF/CIF y domicilio) pendientes de cumplimentar antes de publicar.</p>
@@ -118,7 +117,7 @@
   <footer class="footer">
     <div class="container footer__grid">
       <div>
-        <div class="footer__logo">AU.RA</div>
+        <img class="footer__logo" src="assets/brand/logo-nav.png" alt="AURA" width="56" height="56" />
         <p class="footer__sub">Brunch & Specialty Coffee</p>
       </div>
       <div>

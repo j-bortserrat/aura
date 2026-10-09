@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// Hornea el contenido de las Google Sheets (Talleres y Carta) directamente en
-// talleres.html/en-talleres.html y carta.html/en-carta.html, en el mismo
+// Hornea el contenido de las Google Sheets (Talleres/Eventos y Carta) directamente en
+// eventos.html/en-eventos.html y carta.html/en-carta.html, en el mismo
 // formato que genera script.js en el navegador. Así los buscadores y bots de
 // IA que NO ejecutan JavaScript (p.ej. GPTBot, ClaudeBot, PerplexityBot) ven
 // contenido real en el HTML crudo, en vez de "Cargando talleres…" o la carta
@@ -31,8 +31,8 @@ const CARTA_PAGES = [
   { file: 'en-carta.html', isEN: true },
 ];
 const TALLERES_PAGES = [
-  { file: 'talleres.html', isEN: false },
-  { file: 'en-talleres.html', isEN: true },
+  { file: 'eventos.html', isEN: false },
+  { file: 'en-eventos.html', isEN: true },
 ];
 
 // ---------- helpers (réplica de la lógica de script.js, sin DOM) ----------
@@ -109,6 +109,30 @@ async function downloadTalleresImages(rows) {
     }
   }
   return map;
+}
+
+// Fotos de la Carta (columna "Imagen"): igual que en Talleres, se descargan a
+// images/carta/{id}.jpg para no depender del hotlink de Google en el navegador.
+async function downloadCartaImages(rows) {
+  const dir = join(ROOT, 'images', 'carta');
+  mkdirSync(dir, { recursive: true });
+  for (const row of rows) {
+    const id = driveFileId(row.imagen);
+    if (!id) continue;
+    try {
+      const res = await fetch(normalizeImageUrl(row.imagen));
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      writeFileSync(join(dir, `${id}.jpg`), Buffer.from(await res.arrayBuffer()));
+      console.log(`  Foto de carta descargada: images/carta/${id}.jpg (${row.nombre})`);
+    } catch (err) {
+      console.log(`  Aviso: no se pudo descargar la foto de "${row.nombre}" (${err.message}).`);
+    }
+  }
+}
+
+function cartaImgAttr(it) {
+  const id = driveFileId(it.imagen);
+  return id ? ` data-img="images/carta/${id}.jpg" data-img-remote="${escapeHtml(normalizeImageUrl(it.imagen))}"` : '';
 }
 
 function formatFecha(raw, isEN) {
@@ -208,6 +232,38 @@ function buildTalleresHtml(items, isEN, imageMap) {
   }).join('');
 }
 
+// Columnas de la Sheet -> atributos data-* que usa el filtro de la carta
+// (Vegetariano/Vegano/Keto/Sin gluten). Todo lo que no sea exactamente "1"
+// cuenta como 0, así que una celda vacía no rompe el filtro.
+const DIET_COLUMNS = [
+  ['veg', 'vegetariano'],
+  ['vegan', 'vegano'],
+  ['keto', 'keto'],
+  ['gf', 'sin gluten'],
+  ['lac', 'sin lactosa'],
+];
+function dietDataAttrs(it) {
+  return DIET_COLUMNS.map(([attr, col]) => ` data-${attr}="${it[col] && it[col].trim() === '1' ? '1' : '0'}"`).join('');
+}
+
+const DIET_LABELS = { veg: ['Vegetariano', 'Vegetarian'], vegan: ['Vegano', 'Vegan'], keto: ['Keto', 'Keto'], gf: ['Sin gluten', 'Gluten-free'], lac: ['Sin lactosa', 'Lactose-free'] };
+function dietIconsHtml(it, isEN) {
+  const icons = DIET_COLUMNS.filter(([, col]) => it[col] && it[col].trim() === '1')
+    .map(([attr]) => { const l = DIET_LABELS[attr][isEN ? 1 : 0]; return `<span class="diet-ico diet-ico--${attr}" role="img" aria-label="${l}" title="${l}"></span>`; }).join('');
+  return icons ? `<span class="menu__diets">${icons}</span>` : '';
+}
+
+// ID estable de cada plato (para el enlace directo a su ficha, p.ej. desde el
+// bloque destacado del açaí en Inicio). Se basa siempre en el nombre en
+// español para que sea el mismo en carta.html y en-carta.html.
+function menuItemId(usedIds, categoriaId, nombreOriginal) {
+  const base = `plato-${categoriaId}-${slugify(nombreOriginal)}`;
+  let id = base, n = 2;
+  while (usedIds.has(id)) { id = `${base}-${n}`; n++; }
+  usedIds.add(id);
+  return id;
+}
+
 // ---------- Carta: genera el mismo HTML que pinta renderCarta() en el cliente ----------
 
 function buildCarta(rows, isEN) {
@@ -243,24 +299,42 @@ function buildCarta(rows, isEN) {
             <button class="menu__tab${i === 0 ? ' is-active' : ''}" data-tab="${cat.id}" role="tab">${escapeHtml(cat.nombre)}</button>`
   ).join('');
 
+  const usedIds = new Set();
   const panelsHtml = categorias.map((cat, i) => {
     let html = `<div class="menu__panel${i === 0 ? ' is-active' : ''}" data-panel="${cat.id}">`;
     if (cat.nota) {
       html += `<div class="menu__intro"><strong>${escapeHtml(cat.nombre)}</strong><span>${escapeHtml(cat.nota)}</span></div>`;
     }
     html += '<div class="menu__cols">';
-    cat.subcats.forEach((items, subNombre) => {
-      html += '<div class="menu__col">';
-      if (subNombre) html += `<p class="menu__cat">${escapeHtml(subNombre)}</p>`;
-      items.forEach((it) => {
-        const nombre = isEN ? (it.nombre_en || it.nombre) : it.nombre;
-        const desc = isEN ? (it.descripcion_en || it.descripcion) : it.descripcion;
-        const aler = it.alergenos ? ` (${escapeHtml(it.alergenos)})` : '';
-        const descHtml = desc || aler ? `<p>${escapeHtml(desc)}${aler}</p>` : '';
-        html += `<div class="menu__item"><div class="menu__name">${escapeHtml(nombre)} <span class="price">${escapeHtml(it.precio || '')}</span></div>${descHtml}</div>`;
+    const renderItem = (it) => {
+      const nombre = isEN ? (it.nombre_en || it.nombre) : it.nombre;
+      const desc = isEN ? (it.descripcion_en || it.descripcion) : it.descripcion;
+      const aler = it.alergenos ? ` (${escapeHtml(it.alergenos)})` : '';
+      const descHtml = desc || aler ? `<p>${escapeHtml(desc)}${aler}</p>` : '';
+      const dietAttrs = dietDataAttrs(it);
+      const id = menuItemId(usedIds, cat.id, it.nombre);
+      return `<div class="menu__item" id="${id}" tabindex="0" role="button"${dietAttrs}${cartaImgAttr(it)}><div class="menu__name"><span class="menu__title">${escapeHtml(nombre)}${dietIconsHtml(it, isEN)}</span> <span class="price">${escapeHtml(it.precio || '')}</span></div>${descHtml}</div>`;
+    };
+    // Si la categoría no tiene subcategorías (una sola columna de origen),
+    // se reparte en 2 columnas visuales a mano para no dejar media carta en blanco.
+    if (cat.subcats.size === 1) {
+      const [[subNombre, items]] = cat.subcats;
+      const mitad = Math.ceil(items.length / 2);
+      const columnas = items.length > 1 ? [items.slice(0, mitad), items.slice(mitad)] : [items];
+      columnas.forEach((colItems, idx) => {
+        html += '<div class="menu__col">';
+        if (subNombre && idx === 0) html += `<p class="menu__cat">${escapeHtml(subNombre)}</p>`;
+        html += colItems.map(renderItem).join('');
+        html += '</div>';
       });
-      html += '</div>';
-    });
+    } else {
+      cat.subcats.forEach((items, subNombre) => {
+        html += '<div class="menu__col">';
+        if (subNombre) html += `<p class="menu__cat">${escapeHtml(subNombre)}</p>`;
+        html += items.map(renderItem).join('');
+        html += '</div>';
+      });
+    }
     html += '</div></div>';
     return html;
   }).join('\n          ');
@@ -296,6 +370,9 @@ async function main() {
   console.log('Descargando fotos de Talleres (para no depender del hotlink de Google en el navegador)...');
   const imageMap = await downloadTalleresImages(talleresRows);
   writeFileSync(join(ROOT, 'talleres-images.json'), JSON.stringify(imageMap, null, 2) + '\n', 'utf8');
+
+  console.log('Descargando fotos de la Carta...');
+  await downloadCartaImages(cartaRows);
 
   let cambios = 0;
 

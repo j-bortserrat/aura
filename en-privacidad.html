@@ -23,8 +23,8 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400..500&family=Archivo:ital,wdth,wght@0,90,300..700;1,90,300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=1788799778" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,6 +38,8 @@
     "hasMenu": "en-carta.html",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Carrer de la Reina Na Germana, 9",
+      "postalCode": "46005",
       "addressLocality": "Valencia",
       "addressRegion": "Comunidad Valenciana",
       "addressCountry": "ES"
@@ -66,15 +68,12 @@
   <!-- NAVIGATION -->
   <header class="nav" id="nav">
     <a href="en.html" class="nav__logo" aria-label="AURA home">
-      <svg viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <text x="60" y="36" text-anchor="middle" font-family="Dancing Script, cursive" font-size="34" font-weight="700" fill="currentColor">AU.RA</text>
-      </svg>
+      <img src="assets/brand/logo-wordmark-pink-trimmed.png" alt="AURA" width="154" height="48" />
     </a>
     <nav class="nav__links" id="navLinks" aria-label="Main">
       <a href="en.html">Home</a>
       <a href="en-carta.html">Menu</a>
-      <a href="en-galeria.html">Gallery</a>
-      <a href="en-talleres.html">Workshops</a>
+      <a href="en-eventos.html">Events</a>
       <a href="en-visitanos.html">How to find us</a>
     </nav>
     <div class="nav__right">
@@ -94,17 +93,17 @@
       <div class="container legal">
         <p class="eyebrow">Legal</p>
         <h2>Privacy policy</h2>
-        <p class="legal__updated">Last updated: 26 August 2026</p>
+        <p class="legal__updated">Last updated: 31 August 2026</p>
         <h3>Data controller</h3>
         <p>Controller: <span class="pending">[Owner — pending]</span>, based at <span class="pending">[full address — pending; only the area is confirmed, Ruzafa, Valencia]</span>. In accordance with the GDPR (EU 2016/679) and LOPDGDD 3/2018.</p>
         <h3>Data we process</h3>
-        <p>This site has no server of its own and does not store the data you enter. The form in the "Reservations" section only composes a WhatsApp message on your own device: when you send it, that data (name, party size, date, time and note) is sent directly to AURA via WhatsApp, outside this site. Communication with the business can also take place by phone or Instagram. Only technical browsing data is processed (see <a href="en-cookies.html">Cookie policy</a>).</p>
+        <p>This site has no server of its own, but the "Reservations" form does send your data to a cloud service to check availability and confirm your table instantly: name, phone, date, time, party size and note are recorded in a Google spreadsheet, and an event with that data is created in AURA's Google Calendar. If the group is larger than 4 people, or there's no table available at that time, the reservation is instead handled via WhatsApp: the form composes the message on your own device and that data is sent directly to AURA via WhatsApp, outside this site. Communication with the business can also take place by phone or Instagram. Technical browsing data is also processed (see <a href="en-cookies.html">Cookie policy</a>).</p>
         <h3>Purpose and legal basis</h3>
-        <p>Technical data is used for the correct operation of the site, based on legitimate interest and, for non-essential cookies, your consent.</p>
+        <p>Reservation data is used solely to manage your table, on the basis of carrying out that request. Technical data is used for the correct operation of the site, based on legitimate interest and, for non-essential cookies, your consent.</p>
         <h3>Retention period</h3>
-        <p>Your cookie preference is stored in your own browser (not on a server) until you change or delete it. Messages you send via WhatsApp, phone or Instagram are retained according to those platforms' own policies, outside this site: AURA keeps no copy of its own.</p>
+        <p>Data from an automatically confirmed reservation (name, phone, date, time, party size, note) is kept in AURA's spreadsheet and Calendar for as long as needed to manage it, plus a reasonable period afterwards in case an issue needs resolving; you can ask for it to be deleted sooner by writing to the controller. Your cookie preference is stored in your own browser (not on a server) until you change or delete it. Messages you send via WhatsApp, phone or Instagram are retained according to those platforms' own policies, outside this site.</p>
         <h3>Recipients and international transfers</h3>
-        <p>If you accept non-essential cookies, the embedded map in the "How to find us" section may transfer technical browsing data to Google LLC (United States), covered by the international transfer mechanisms provided for under the GDPR. WhatsApp reservations are handled directly by Meta/WhatsApp Ireland Limited, under its own privacy policy. AURA does not sell or share your data with anyone else.</p>
+        <p>Data from automatically confirmed reservations is stored in Google Sheets and Google Calendar, run by Google LLC (United States), covered by the international transfer mechanisms provided for under the GDPR. If you accept non-essential cookies, the embedded map in the "How to find us" section may also transfer technical browsing data to Google. Reservations handled via WhatsApp are processed directly by Meta/WhatsApp Ireland Limited, under its own privacy policy. AURA does not sell or share your data with anyone else.</p>
         <h3>Your rights</h3>
         <p>You can exercise your rights of access, rectification, erasure, objection, restriction and portability by writing to the controller. You can also file a complaint with the <a href="https://www.aepd.es" target="_blank" rel="noopener">Spanish Data Protection Agency</a>.</p>
         <p class="pending">Controller details (company name, tax ID and address) pending completion before publishing.</p>
@@ -118,7 +117,7 @@
   <footer class="footer">
     <div class="container footer__grid">
       <div>
-        <div class="footer__logo">AU.RA</div>
+        <img class="footer__logo" src="assets/brand/logo-nav.png" alt="AURA" width="56" height="56" />
         <p class="footer__sub">Brunch & Specialty Coffee</p>
       </div>
       <div>

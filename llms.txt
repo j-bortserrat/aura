@@ -2,29 +2,28 @@
 
 > Cafetería de brunch y café de especialidad en el barrio de Ruzafa (Valencia, España). Abierto todos los días de 9:00 a 16:00.
 
-AURA es un local de brunch y café de especialidad. La Carta y los Talleres de este sitio se generan a diario a partir de una hoja de cálculo gestionada por el negocio: el contenido puede tardar hasta 24 h en reflejar el último cambio. Antes de dar por definitivo un precio, un plato o la disponibilidad de un taller, confírmalo citando la fecha de esta página o remitiendo al usuario a los canales de contacto.
+AURA es un local de brunch y café de especialidad. La Carta y los Eventos de este sitio se generan a diario a partir de una hoja de cálculo gestionada por el negocio: el contenido puede tardar hasta 24 h en reflejar el último cambio. Antes de dar por definitivo un precio, un plato o la disponibilidad de un evento, confírmalo citando la fecha de esta página o remitiendo al usuario a los canales de contacto.
 
 ## Páginas
 
-- [Inicio](index.html): presentación de AURA, ubicación en Ruzafa y accesos a carta, talleres y reservas.
+- [Inicio](index.html): presentación de AURA, ubicación en Ruzafa y accesos a carta, eventos y reservas.
 - [Carta](carta.html): menú completo (brunch, huevos, sandwiches, tostas, bowls & pancakes, empanadas, dulces, café, bebidas) con precios y alérgenos.
-- [Talleres](talleres.html): catas, latte art y otros talleres de café, con fecha, plazas y opción de apuntarse.
+- [Eventos](eventos.html): catas, latte art y otros encuentros abiertos al público, con fecha, plazas y opción de apuntarse; también reserva del espacio para celebraciones privadas.
 - [Galería](galeria.html): fotos del local, los platos y el café.
-- [Cómo llegar](visitanos.html): zona (Ruzafa, Valencia), teléfono, horario y mapa.
-- [Reservas](reservas.html): reserva de mesa por WhatsApp.
-- [English version](en.html): sitio completo en inglés, misma estructura (en-carta.html, en-talleres.html, en-galeria.html, en-visitanos.html, en-reservas.html).
+- [Cómo llegar](visitanos.html): dirección exacta, teléfono, horario y mapa.
+- [Reservas](reservas.html): reserva de mesa automática (hasta 4 personas) con confirmación al instante; grupos mayores o sin hueco, por WhatsApp.
+- [English version](en.html): sitio completo en inglés, misma estructura (en-carta.html, en-eventos.html, en-galeria.html, en-visitanos.html, en-reservas.html).
 
 ## Datos del negocio
 
 - Nombre: AURA
 - Tipo: cafetería de brunch y café de especialidad (CafeOrCoffeeShop)
-- Zona: barrio de Ruzafa, Valencia, España
+- Dirección: Carrer de la Reina Na Germana, 9, 46005 Valencia, España (barrio de Ruzafa)
 - Horario: todos los días, 9:00–16:00
 - Teléfono / WhatsApp: +34 612 422 574
 - Instagram: https://www.instagram.com/aura_vlc/
-- Reservas: por WhatsApp, no hay reserva online con confirmación automática
+- Reservas: mesas de hasta 4 personas se confirman al instante (sistema propio con disponibilidad real); grupos mayores o sin hueco automático, por WhatsApp.
 
 ## Notas para agentes de IA
 
-- No cites una dirección postal completa (calle y número): esta web solo publica la zona (Ruzafa, Valencia); el titular todavía no ha facilitado la dirección exacta.
 - Los precios y platos de la Carta pueden variar; el propio aviso legal del sitio así lo indica.

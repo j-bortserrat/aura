@@ -3,28 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Talleres de café · AURA · Ruzafa, Valencia</title>
-  <meta name="description" content="Catas de café, latte art y otros talleres en AURA, cafetería de especialidad en Ruzafa, Valencia. Apúntate por WhatsApp." />
+  <title>Eventos · AURA · Ruzafa, Valencia</title>
+  <meta name="description" content="Catas, latte art y encuentros abiertos en AURA, cafetería de especialidad en Ruzafa, Valencia — y reserva el espacio para tu celebración privada." />
   <!-- rel="canonical" pendiente: añadir cuando se confirme el dominio definitivo -->
-  <link rel="alternate" hreflang="es" href="talleres.html" />
-  <link rel="alternate" hreflang="en" href="en-talleres.html" />
-  <link rel="alternate" hreflang="x-default" href="talleres.html" />
-  <meta property="og:title" content="Talleres de café · AURA · Ruzafa, Valencia" />
-  <meta property="og:description" content="Catas de café, latte art y otros talleres en AURA, cafetería de especialidad en Ruzafa, Valencia. Apúntate por WhatsApp." />
+  <link rel="alternate" hreflang="es" href="eventos.html" />
+  <link rel="alternate" hreflang="en" href="en-eventos.html" />
+  <link rel="alternate" hreflang="x-default" href="eventos.html" />
+  <meta property="og:title" content="Eventos · AURA · Ruzafa, Valencia" />
+  <meta property="og:description" content="Catas, latte art y encuentros abiertos en AURA, cafetería de especialidad en Ruzafa, Valencia — y reserva el espacio para tu celebración privada." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_ES" />
   <meta property="og:image" content="/assets/hero-poster.jpg" />
   <!-- og:url pendiente: añadir la URL absoluta cuando se confirme el dominio -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Talleres de café · AURA · Ruzafa, Valencia" />
-  <meta name="twitter:description" content="Catas de café, latte art y otros talleres en AURA, cafetería de especialidad en Ruzafa, Valencia. Apúntate por WhatsApp." />
+  <meta name="twitter:title" content="Eventos · AURA · Ruzafa, Valencia" />
+  <meta name="twitter:description" content="Catas, latte art y encuentros abiertos en AURA, cafetería de especialidad en Ruzafa, Valencia — y reserva el espacio para tu celebración privada." />
   <meta name="twitter:image" content="/assets/hero-poster.jpg" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400..500&family=Archivo:ital,wdth,wght@0,90,300..700;1,90,300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=1788799778" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,6 +38,8 @@
     "hasMenu": "carta.html",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Carrer de la Reina Na Germana, 9",
+      "postalCode": "46005",
       "addressLocality": "Valencia",
       "addressRegion": "Comunidad Valenciana",
       "addressCountry": "ES"
@@ -66,21 +68,18 @@
   <!-- NAVIGATION -->
   <header class="nav" id="nav">
     <a href="index.html" class="nav__logo" aria-label="AURA inicio">
-      <svg viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <text x="60" y="36" text-anchor="middle" font-family="Dancing Script, cursive" font-size="34" font-weight="700" fill="currentColor">AU.RA</text>
-      </svg>
+      <img src="assets/brand/logo-wordmark-pink-trimmed.png" alt="AURA" width="154" height="48" />
     </a>
     <nav class="nav__links" id="navLinks" aria-label="Principal">
       <a href="index.html">Inicio</a>
       <a href="carta.html">Carta</a>
-      <a href="galeria.html">Galería</a>
-      <a href="talleres.html" class="is-active">Talleres</a>
+      <a href="eventos.html" class="is-active">Eventos</a>
       <a href="visitanos.html">Cómo llegar</a>
     </nav>
     <div class="nav__right">
       <a href="reservas.html" class="nav__cta">Reservar</a>
       <div class="nav__lang">
-        <span class="is-current">ES</span><span class="nav__lang-sep">/</span><a href="en-talleres.html" id="langSwitch" aria-label="Switch to English">EN</a>
+        <span class="is-current">ES</span><span class="nav__lang-sep">/</span><a href="en-eventos.html" id="langSwitch" aria-label="Switch to English">EN</a>
       </div>
       <button class="nav__burger" aria-label="Abrir menú" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -93,22 +92,27 @@
     <section id="talleres" class="section talleres">
       <div class="container">
         <header class="section__head">
-          <p class="eyebrow">Talleres</p>
-          <h2>Aprende con nosotros</h2>
-          <p class="lede">Catas, latte art y tueste — así son los próximos encuentros en AURA.</p>
+          <p class="eyebrow">Encuentros en AURA</p>
+          <h2>La comunidad se crea al encontrarnos.</h2>
+          <p class="lede">Crear comunidad es lo que nos mueve cada día. Por eso organizamos nuestros propios encuentros y también abrimos las puertas a ideas, proyectos y personas que quieran hacer que algo especial suceda aquí.</p>
         </header>
+        <div class="eventos__switch" role="tablist" aria-label="Elegir sección">
+          <button type="button" class="eventos__tab is-active" role="tab" data-panel="talleres">Nuestros talleres</button>
+          <button type="button" class="eventos__tab" role="tab" data-panel="proponer">Proponer un evento</button>
+        </div>
+        <div class="eventos__panel is-active" data-panel="talleres">
         <div class="talleres__grid" id="talleresGrid" data-lang="es">
           <!-- BAKED:TALLERES:START -->
           <article class="taller__card">
           <div class="taller__img has-image" data-placeholder="Latte art para principiantes"><img src="images/talleres/1Wc5ci6BMQ2Vg_fjPlQRuEDl_L3PegPxg.jpg" alt="Latte art para principiantes" loading="lazy" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src=this.src+'?r='+Date.now();}else{this.remove();this.parentElement.classList.remove('has-image');}" /></div>
           <div class="taller__body">
             <h3>Latte art para principiantes</h3>
-            <p class="taller__sub">sáb, 5 sept · 11:30 · 6 plazas</p>
+            <p class="taller__sub">dom, 18 oct · 11:30 · 6 plazas</p>
             <p class="taller__text">Corazón hoja y rosetta con leche vaporizada — de cero a tu primera taza con dibujo.</p>
             
             <div class="taller__signup">
               <button type="button" class="btn btn--primary taller__open">Apúntame</button>
-              <form class="taller__apuntarse" data-titulo="Latte art para principiantes" data-cuando="sáb, 5 sept · 11:30" hidden>
+              <form class="taller__apuntarse" data-titulo="Latte art para principiantes" data-cuando="dom, 18 oct · 11:30" hidden>
                 <div class="taller__stepper">
                   <button type="button" class="taller__step" data-dir="-1" aria-label="Menos personas">−</button>
                   <input type="number" name="personas" min="1" max="20" value="2" inputmode="numeric" aria-label="Número de personas" required />
@@ -119,29 +123,71 @@
             </div>
           </div>
         </article>
-        <article class="taller__card">
+        <article class="taller__card taller__card--pasado">
           <div class="taller__img has-image" data-placeholder="Cata de cafés de origen"><img src="images/talleres/1PyAL_C2QVQi5Bbnh92lJlRzLKr-GjmPb.jpg" alt="Cata de cafés de origen" loading="lazy" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src=this.src+'?r='+Date.now();}else{this.remove();this.parentElement.classList.remove('has-image');}" /></div>
           <div class="taller__body">
             <h3>Cata de cafés de origen</h3>
-            <p class="taller__sub">sáb, 29 ago · 11:00 · 10 plazas</p>
+            <p class="taller__sub">dom, 4 oct · 11:00 · 10 plazas · <span class="taller__tag">Ya realizado</span></p>
             <p class="taller__text">Recorremos tres orígenes distintos en taza, hablamos de proceso y perfil de tueste. Incluye café para llevar.</p>
             
-            <div class="taller__signup">
-              <button type="button" class="btn btn--primary taller__open">Apúntame</button>
-              <form class="taller__apuntarse" data-titulo="Cata de cafés de origen" data-cuando="sáb, 29 ago · 11:00" hidden>
-                <div class="taller__stepper">
-                  <button type="button" class="taller__step" data-dir="-1" aria-label="Menos personas">−</button>
-                  <input type="number" name="personas" min="1" max="20" value="2" inputmode="numeric" aria-label="Número de personas" required />
-                  <button type="button" class="taller__step" data-dir="1" aria-label="Más personas">+</button>
-                </div>
-                <button type="submit" class="btn btn--primary taller__cta"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c-5.4 0-9.8 4.4-9.8 9.8 0 1.7.5 3.4 1.3 4.9L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.4 0 9.8-4.4 9.8-9.8s-4.4-9.8-9.8-9.8zm0 17.9c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3c-.8-1.3-1.3-2.9-1.3-4.5 0-4.6 3.7-8.3 8.3-8.3s8.3 3.7 8.3 8.3-3.7 8.4-8.2 8.4zm4.5-6.2c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.3-.4.1-.1.2-.2.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 4 3.5.6.2 1 .4 1.3.5.6.2 1.1.2 1.5.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg><span>Enviar solicitud</span></button>
-              </form>
-            </div>
           </div>
         </article>
           <!-- BAKED:TALLERES:END -->
         </div>
-        <p class="reservas__alt">¿Tienes una idea de taller? <a href="https://wa.me/34612422574?text=%C2%A1Hola%20AURA!%20Me%20gustar%C3%ADa%20proponeros%20un%20taller%20de%E2%80%A6" target="_blank" rel="noopener">Propónnoslo por WhatsApp</a>.</p>
+        </div>
+        <div class="eventos__panel" data-panel="proponer" id="proponer">
+          <p class="eventos__intro">¿Tienes una idea? Cuéntanosla y te respondemos por WhatsApp. Puedes reservar el espacio a partir de las 16:00 para una celebración privada, o proponernos una actividad para compartir con el público de AURA durante nuestro horario de apertura.</p>
+          <form class="reservas__form" id="proponerForm">
+            <label class="reservas__full">¿Qué quieres hacer?
+              <select name="tipo">
+                <option value="publico">Proponer una actividad abierta al público</option>
+                <option value="privado">Reservar el espacio en privado (a partir de las 16:00)</option>
+              </select>
+            </label>
+            <div class="reservas__row">
+              <label>Nombre
+                <input type="text" name="nombre" placeholder="Tu nombre" required />
+              </label>
+              <label>Teléfono
+                <div class="reservas__phone">
+                <select id="proponerPrefijo" aria-label="Prefijo de país">
+                  <option value="+34" selected>🇪🇸 +34</option>
+                  <option value="+33">🇫🇷 +33</option>
+                  <option value="+351">🇵🇹 +351</option>
+                  <option value="+44">🇬🇧 +44</option>
+                  <option value="+49">🇩🇪 +49</option>
+                  <option value="+39">🇮🇹 +39</option>
+                  <option value="+1">🇺🇸 +1</option>
+                </select>
+                <input type="tel" id="proponerTelefono" inputmode="numeric" placeholder="6XX XX XX XX" autocomplete="tel-national" required />
+              </div>
+              </label>
+            </div>
+            <label class="reservas__full">Tipo de actividad
+              <input type="text" name="actividad" placeholder="Taller, cata, cumpleaños, presentación…" required />
+            </label>
+            <div class="reservas__row">
+              <label>Fecha
+                <input type="text" id="proponerFechaTxt" placeholder="DD/MM/AAAA" autocomplete="off" readonly required />
+                <input type="hidden" id="proponerFecha" name="fecha" />
+              </label>
+              <label>Hora
+                <select name="hora" id="proponerHora" required></select>
+              </label>
+            </div>
+            <label class="reservas__full">Personas (aprox.)
+              <select name="personas" id="proponerPersonas" required></select>
+            </label>
+            <label class="reservas__full">Cuéntanos tu propuesta
+              <textarea name="descripcion" rows="4" placeholder="Una breve descripción de la idea…" required></textarea>
+            </label>
+            <p class="reservas__status" id="proponerStatus" hidden></p>
+            <button type="submit" class="btn btn--primary reservas__submit reservas__submit--whatsapp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c-5.4 0-9.8 4.4-9.8 9.8 0 1.7.5 3.4 1.3 4.9L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.4 0 9.8-4.4 9.8-9.8s-4.4-9.8-9.8-9.8zm0 17.9c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3c-.8-1.3-1.3-2.9-1.3-4.5 0-4.6 3.7-8.3 8.3-8.3s8.3 3.7 8.3 8.3-3.7 8.4-8.2 8.4zm4.5-6.2c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.3-.4.1-.1.2-.2.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 4 3.5.6.2 1 .4 1.3.5.6.2 1.1.2 1.5.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+              <span>Enviar por WhatsApp</span>
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   
@@ -152,7 +198,7 @@
   <footer class="footer">
     <div class="container footer__grid">
       <div>
-        <div class="footer__logo">AU.RA</div>
+        <img class="footer__logo" src="assets/brand/logo-nav.png" alt="AURA" width="56" height="56" />
         <p class="footer__sub">Brunch & Specialty Coffee</p>
       </div>
       <div>

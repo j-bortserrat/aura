@@ -23,8 +23,8 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400..500&family=Archivo:ital,wdth,wght@0,90,300..700;1,90,300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=1788799778" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,6 +38,8 @@
     "hasMenu": "carta.html",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Carrer de la Reina Na Germana, 9",
+      "postalCode": "46005",
       "addressLocality": "Valencia",
       "addressRegion": "Comunidad Valenciana",
       "addressCountry": "ES"
@@ -66,15 +68,12 @@
   <!-- NAVIGATION -->
   <header class="nav" id="nav">
     <a href="index.html" class="nav__logo" aria-label="AURA inicio">
-      <svg viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <text x="60" y="36" text-anchor="middle" font-family="Dancing Script, cursive" font-size="34" font-weight="700" fill="currentColor">AU.RA</text>
-      </svg>
+      <img src="assets/brand/logo-wordmark-pink-trimmed.png" alt="AURA" width="154" height="48" />
     </a>
     <nav class="nav__links" id="navLinks" aria-label="Principal">
       <a href="index.html" class="is-active">Inicio</a>
       <a href="carta.html">Carta</a>
-      <a href="galeria.html">Galería</a>
-      <a href="talleres.html">Talleres</a>
+      <a href="eventos.html">Eventos</a>
       <a href="visitanos.html">Cómo llegar</a>
     </nav>
     <div class="nav__right">
@@ -98,13 +97,13 @@
       <div class="hero__inner">
         <p class="eyebrow">Ruzafa · Valencia</p>
         <h1 class="hero__logo">
-          <span class="hero__logo-script">AU.RA</span>
-          <span class="hero__logo-sub">Brunch & Specialty Coffee</span>
+          <img class="hero__logo-img" src="assets/brand/logo-wordmark-pink-trimmed.png" alt="AURA" />
+          <span class="hero__logo-sub">Un placer, mucho gusto.</span>
         </h1>
-        <p class="hero__tag">Café de especialidad, brunch sin prisa y un rincón con luz propia en el barrio.</p>
+        <p class="hero__tag">Desayuno, brunch, lunch y pastelería artesanal, preparados con ingredientes naturales y producto de proximidad. Ven por ti, quédate todo lo que te pida el momento.</p>
         <div class="hero__actions">
-          <a href="carta.html" class="btn btn--primary">Ver carta</a>
-          <a href="https://www.instagram.com/aura_vlc/" target="_blank" rel="noopener" class="btn btn--ghost">Síguenos en Instagram</a>
+          <a href="carta.html" class="btn btn--ghost">Ver la carta</a>
+          <a href="visitanos.html" class="btn btn--ghost">Cómo llegar</a>
         </div>
       </div>
       <a href="#about" class="hero__scroll" id="heroScroll" aria-label="Bajar a contenido">
@@ -116,30 +115,43 @@
     <section id="about" class="section about">
       <div class="container about__grid">
         <div class="about__text">
-          <p class="eyebrow">El lugar</p>
-          <h2>Un brunch despacio,<br/>un café que se nota.</h2>
+          <p class="eyebrow">Como en casa</p>
+          <h2>Tu lugar, a tu manera.</h2>
           <p>
-            AURA nace en Ruzafa como un espacio para parar.
-            Tostamos la conversación a fuego lento y servimos café de
-            especialidad acompañado de un brunch pensado para empezar
-            —o alargar— el día.
+            Tu lugar para un desayuno con calma, un brunch sin apuro,
+            una pausa para el lunch, una charla larga o un rato para ti.
+            Así es Aura: producto de proximidad, masa madre, fruta de
+            temporada, pastelería artesanal, café de tostadores locales
+            y un equipo que te recibe con calidez real.
           </p>
           <p>
-            Producto de proximidad, masa madre, fruta de temporada y
-            un equipo que mima cada plato como si fuera el primero.
+            Aunque sea tu primera vez, queremos que te sientas de la casa.
           </p>
           <ul class="about__chips">
-            <li>Specialty Coffee</li>
-            <li>Brunch</li>
-            <li>Opciones veggie</li>
-            <li>Açaí</li>
+            <li><a href="carta.html">Opciones saludables</a></li>
+            <li><a href="carta.html?filtro=vegan#carta">Vegano</a></li>
+            <li><a href="carta.html?filtro=gf#carta">Sin gluten</a></li>
+            <li><a href="carta.html#plato-bowls-pancakes-acai">Açaí</a></li>
             <li>Pet friendly</li>
           </ul>
         </div>
         <div class="about__visual">
-          <img class="about__photo about__photo--1" src="images/about-2.png" alt="Sándwich tostado con aguacate y bacon" />
+          <img class="about__photo about__photo--1" src="images/about-2.webp" alt="Plato de brunch saludable servido en Aura, en Ruzafa, Valencia." />
           <img class="about__photo about__photo--2" src="images/about-1.png" alt="Iced Açaí Latte" />
-          <img class="about__photo about__photo--3" src="images/about-3.png" alt="Mesa con varios platos del brunch" />
+          <img class="about__photo about__photo--3" src="images/about-3.webp" alt="Bowl de açaí preparado en Aura, en Ruzafa, Valencia." />
+        </div>
+      </div>
+    </section>
+
+    <section id="acai" class="section acai">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow">Hecho en casa</p>
+          <h2>El açaí que hacemos con calma.</h2>
+          <p class="lede">Açaí orgánico preparado en el momento, sin azúcar añadido, con receta propia y toppings elaborados en Aura. Lo vas a encontrar en bowl, en latte y en nuestro smoothie Delightfull.</p>
+        </header>
+        <div class="acai__cta">
+          <a href="carta.html#plato-bowls-pancakes-acai" class="btn btn--ghost">Ver el bowl en la carta</a>
         </div>
       </div>
     </section>
@@ -152,7 +164,7 @@
   <footer class="footer">
     <div class="container footer__grid">
       <div>
-        <div class="footer__logo">AU.RA</div>
+        <img class="footer__logo" src="assets/brand/logo-nav.png" alt="AURA" width="56" height="56" />
         <p class="footer__sub">Brunch & Specialty Coffee</p>
       </div>
       <div>

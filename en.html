@@ -23,8 +23,8 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400..500&family=Archivo:ital,wdth,wght@0,90,300..700;1,90,300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=1788799778" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,6 +38,8 @@
     "hasMenu": "en-carta.html",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Carrer de la Reina Na Germana, 9",
+      "postalCode": "46005",
       "addressLocality": "Valencia",
       "addressRegion": "Comunidad Valenciana",
       "addressCountry": "ES"
@@ -66,15 +68,12 @@
   <!-- NAVIGATION -->
   <header class="nav" id="nav">
     <a href="en.html" class="nav__logo" aria-label="AURA home">
-      <svg viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <text x="60" y="36" text-anchor="middle" font-family="Dancing Script, cursive" font-size="34" font-weight="700" fill="currentColor">AU.RA</text>
-      </svg>
+      <img src="assets/brand/logo-wordmark-pink-trimmed.png" alt="AURA" width="154" height="48" />
     </a>
     <nav class="nav__links" id="navLinks" aria-label="Main">
       <a href="en.html" class="is-active">Home</a>
       <a href="en-carta.html">Menu</a>
-      <a href="en-galeria.html">Gallery</a>
-      <a href="en-talleres.html">Workshops</a>
+      <a href="en-eventos.html">Events</a>
       <a href="en-visitanos.html">How to find us</a>
     </nav>
     <div class="nav__right">
@@ -98,13 +97,13 @@
       <div class="hero__inner">
         <p class="eyebrow">Ruzafa · Valencia</p>
         <h1 class="hero__logo">
-          <span class="hero__logo-script">AU.RA</span>
-          <span class="hero__logo-sub">Brunch & Specialty Coffee</span>
+          <img class="hero__logo-img" src="assets/brand/logo-wordmark-pink-trimmed.png" alt="AURA" />
+          <span class="hero__logo-sub">A pleasure to meet you.</span>
         </h1>
-        <p class="hero__tag">Specialty coffee, unhurried brunch and a sunlit corner of the neighborhood.</p>
+        <p class="hero__tag">Breakfast, brunch, lunch and house-made pastry, prepared with natural ingredients and locally-sourced produce. Come for yourself, stay as long as the moment asks.</p>
         <div class="hero__actions">
-          <a href="en-carta.html" class="btn btn--primary">View menu</a>
-          <a href="https://www.instagram.com/aura_vlc/" target="_blank" rel="noopener" class="btn btn--ghost">Follow us on Instagram</a>
+          <a href="en-carta.html" class="btn btn--ghost">View the menu</a>
+          <a href="en-visitanos.html" class="btn btn--ghost">How to find us</a>
         </div>
       </div>
       <a href="#about" class="hero__scroll" id="heroScroll" aria-label="Scroll down">
@@ -116,29 +115,43 @@
     <section id="about" class="section about">
       <div class="container about__grid">
         <div class="about__text">
-          <p class="eyebrow">The place</p>
-          <h2>A slow brunch,<br/>a coffee that stands out.</h2>
+          <p class="eyebrow">Feel at home</p>
+          <h2>Your place, your way.</h2>
           <p>
-            AURA was born in Ruzafa as a place to pause.
-            We slow-roast conversation and serve specialty coffee
-            alongside a brunch designed to start —or stretch— the day.
+            Your place for an unhurried breakfast, a brunch with no rush,
+            a break for lunch, a long chat or a moment for yourself.
+            That's AURA: local produce, sourdough, seasonal fruit,
+            house-made pastry, coffee from local roasters and a team
+            that welcomes you with real warmth.
           </p>
           <p>
-            Local produce, sourdough, seasonal fruit and a team that
-            treats every dish like the first one.
+            Even if it's your first time, we want you to feel at home.
           </p>
           <ul class="about__chips">
-            <li>Specialty Coffee</li>
-            <li>Brunch</li>
-            <li>Veggie options</li>
-            <li>Açaí</li>
+            <li><a href="en-carta.html">Healthy options</a></li>
+            <li><a href="en-carta.html?filtro=vegan#carta">Vegan</a></li>
+            <li><a href="en-carta.html?filtro=gf#carta">Gluten-free</a></li>
+            <li><a href="en-carta.html#plato-bowls-pancakes-acai">Açaí</a></li>
             <li>Pet friendly</li>
           </ul>
         </div>
         <div class="about__visual">
-          <img class="about__photo about__photo--1" src="images/about-2.png" alt="Toasted sandwich with avocado and bacon" />
+          <img class="about__photo about__photo--1" src="images/about-2.webp" alt="Healthy brunch plate served at AURA, in Ruzafa, Valencia." />
           <img class="about__photo about__photo--2" src="images/about-1.png" alt="Iced Açaí Latte" />
-          <img class="about__photo about__photo--3" src="images/about-3.png" alt="Table with several brunch dishes" />
+          <img class="about__photo about__photo--3" src="images/about-3.webp" alt="Açaí bowl prepared at AURA, in Ruzafa, Valencia." />
+        </div>
+      </div>
+    </section>
+
+    <section id="acai" class="section acai">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow">House-made</p>
+          <h2>The açaí we take our time with.</h2>
+          <p class="lede">Organic açaí prepared to order, no added sugar, with our own recipe and toppings made in-house at AURA. Find it in a bowl, a latte, and our Delightfull smoothie.</p>
+        </header>
+        <div class="acai__cta">
+          <a href="en-carta.html#plato-bowls-pancakes-acai" class="btn btn--ghost">See the bowl on the menu</a>
         </div>
       </div>
     </section>
@@ -151,7 +164,7 @@
   <footer class="footer">
     <div class="container footer__grid">
       <div>
-        <div class="footer__logo">AU.RA</div>
+        <img class="footer__logo" src="assets/brand/logo-nav.png" alt="AURA" width="56" height="56" />
         <p class="footer__sub">Brunch & Specialty Coffee</p>
       </div>
       <div>
