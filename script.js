@@ -293,7 +293,7 @@ if (ficha) {
 // scripts/apps-script-reservas.gs para el código y las instrucciones).
 // Mientras esté vacía, toda reserva se gestiona por WhatsApp, como antes.
 const RESERVAS_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxe2GVO4FRoST2JDftHDUpydYFCYrNs4OZUVBWaDNvDcooR8mmjbBwBcqezqPNNAwCf/exec';
-const RESERVAS_MAX_PERSONAS_AUTOMATICO = 4;
+const RESERVAS_MAX_PERSONAS_AUTOMATICO = 12; // el servidor decide según mesas/grupos de cada zona
 
 // Teléfono con prefijo de país: formato automático y validación nativa (pattern + title).
 function initTelefono(prefijoSelect, telefonoInput) {
@@ -455,7 +455,7 @@ function initDatePicker(fechaTexto, fechaReal) {
   }
 
   // El botón solo se viste de WhatsApp cuando de verdad va a abrir WhatsApp
-  // (grupos de más de 4): para 4 o menos, la reserva puede confirmarse
+  // (grupos de más de 12): para 12 o menos, la reserva puede confirmarse
   // sola sin pasar por WhatsApp, así que el botón no debe insinuar que sí.
   function actualizarModoBoton() {
     const personas = parseInt(personasInput.value, 10) || 0;
@@ -557,8 +557,8 @@ function initDatePicker(fechaTexto, fechaReal) {
     // Grupos grandes: se gestionan a mano, para poder juntar mesas.
     if (personas > RESERVAS_MAX_PERSONAS_AUTOMATICO) {
       setStatus('info', isEN
-        ? 'Groups over 4 people go through WhatsApp so we can arrange the tables — opening WhatsApp…'
-        : 'Los grupos de más de 4 personas los gestionamos por WhatsApp para poder juntar mesas — abriendo WhatsApp…');
+        ? 'Groups over 12 people go through WhatsApp so we can arrange the tables — opening WhatsApp…'
+        : 'Los grupos de más de 12 personas los gestionamos por WhatsApp para poder juntar mesas — abriendo WhatsApp…');
       irPorWhatsapp(nombre, personas, fecha, hora, comentario, zona, tipo);
       return;
     }
