@@ -1270,3 +1270,4 @@ body.ficha-open { overflow: hidden; }
   .menu__filters { margin-bottom: 14px; padding-bottom: 2px; }
   .menu__tabs { margin-bottom: 22px; padding-bottom: 16px; }
 }
+.menu__notes--aviso { margin-top: 10px; color: var(--cream-2); }

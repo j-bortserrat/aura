@@ -51,16 +51,21 @@
       "latitude": 39.4640145,
       "longitude": -0.366011
     },
-    "openingHours": ["Mo-Su 09:00-16:00"],
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "https://schema.org/Monday", "https://schema.org/Tuesday", "https://schema.org/Wednesday",
-        "https://schema.org/Thursday", "https://schema.org/Friday", "https://schema.org/Saturday", "https://schema.org/Sunday"
-      ],
-      "opens": "09:00",
-      "closes": "16:00"
-    },
+    "openingHours": ["Mo-Fr 09:00-19:00", "Sa-Su 09:00-18:00"],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["https://schema.org/Monday", "https://schema.org/Tuesday", "https://schema.org/Wednesday", "https://schema.org/Thursday", "https://schema.org/Friday"],
+        "opens": "09:00",
+        "closes": "19:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["https://schema.org/Saturday", "https://schema.org/Sunday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
     "sameAs": ["https://www.instagram.com/aura_vlc/"]
   }
   </script>
@@ -140,6 +145,7 @@
             <span>1 Huevo</span><span>2 Sulfitos</span><span>3 Soja</span><span>4 Pescado</span><span>5 Sésamo</span><span>6 Mostaza</span><span>7 Moluscos</span><span>8 Lácteos</span><span>9 Gluten</span><span>10 Frutos secos</span><span>11 Crustáceos</span><span>12 Cacahuetes</span><span>13 Apio</span><span>14 Altramuz</span>
           </p>
           <p class="menu__notes">Productos libres de gluten no aptos para celíacos · Consumo mínimo por hora: 10 € · Los precios pueden variar; la carta oficial se actualiza en local.</p>
+          <p class="menu__notes menu__notes--aviso"><strong>Prohibido el consumo de cualquier producto ajeno al local.</strong></p>
         </div>
 
         <p class="carta__official">
@@ -183,7 +189,7 @@
       </div>
       <div>
         <p class="footer__title">Horario</p>
-        <p>Todos los días · 9:00 – 16:00</p>
+        <p>Lunes a viernes 9:00 – 19:00 · Sábado y domingo 9:00 – 18:00</p>
       </div>
     </div>
     <div class="legal-links">

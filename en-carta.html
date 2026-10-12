@@ -51,16 +51,21 @@
       "latitude": 39.4640145,
       "longitude": -0.366011
     },
-    "openingHours": ["Mo-Su 09:00-16:00"],
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "https://schema.org/Monday", "https://schema.org/Tuesday", "https://schema.org/Wednesday",
-        "https://schema.org/Thursday", "https://schema.org/Friday", "https://schema.org/Saturday", "https://schema.org/Sunday"
-      ],
-      "opens": "09:00",
-      "closes": "16:00"
-    },
+    "openingHours": ["Mo-Fr 09:00-19:00", "Sa-Su 09:00-18:00"],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["https://schema.org/Monday", "https://schema.org/Tuesday", "https://schema.org/Wednesday", "https://schema.org/Thursday", "https://schema.org/Friday"],
+        "opens": "09:00",
+        "closes": "19:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["https://schema.org/Saturday", "https://schema.org/Sunday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ],
     "sameAs": ["https://www.instagram.com/aura_vlc/"]
   }
   </script>
@@ -140,6 +145,7 @@
             <span>1 Egg</span><span>2 Sulfites</span><span>3 Soy</span><span>4 Fish</span><span>5 Sesame</span><span>6 Mustard</span><span>7 Molluscs</span><span>8 Dairy</span><span>9 Gluten</span><span>10 Tree nuts</span><span>11 Crustaceans</span><span>12 Peanuts</span><span>13 Celery</span><span>14 Lupin</span>
           </p>
           <p class="menu__notes">Gluten-free products are not suitable for celiacs · Minimum consumption per hour: 10 € · Prices may vary; the official menu is updated in-house.</p>
+          <p class="menu__notes menu__notes--aviso"><strong>The consumption of any product from outside the premises is forbidden.</strong></p>
         </div>
 
         <p class="carta__official">
@@ -183,7 +189,7 @@
       </div>
       <div>
         <p class="footer__title">Hours</p>
-        <p>Every day · 9:00 – 16:00</p>
+        <p>Monday to Friday 9:00 – 19:00 · Saturday and Sunday 9:00 – 18:00</p>
       </div>
     </div>
     <div class="legal-links">

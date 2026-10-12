@@ -2,21 +2,23 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
 // Estado abierto / cerrado en tiempo real
-// Horario: todos los días 9:00–16:00
+// Horario: lunes a viernes 9:00–19:00, sábado y domingo 9:00–18:00
 const OPEN_MIN = 9 * 60;
-const CLOSE_MIN = 16 * 60;
+const closeMinDe = (fecha) => ([0, 6].includes(fecha.getDay()) ? 18 : 19) * 60;
 
 const isEN = document.documentElement.lang === 'en';
 
 function updateOpenStatus() {
   const now = new Date();
   const mins = now.getHours() * 60 + now.getMinutes();
+  const CLOSE_MIN = closeMinDe(now);
+  const cierreTxt = `${CLOSE_MIN / 60}:00`;
   const isOpen = mins >= OPEN_MIN && mins < CLOSE_MIN;
 
   const state = isOpen ? 'is-open' : 'is-closed';
   const label = isOpen ? (isEN ? 'Open' : 'Abierto') : (isEN ? 'Closed' : 'Cerrado');
   const detail = isOpen
-    ? (isEN ? 'Closes at 16:00' : 'Cierra a las 16:00')
+    ? (isEN ? `Closes at ${cierreTxt}` : `Cierra a las ${cierreTxt}`)
     : (mins < OPEN_MIN
         ? (isEN ? 'Opens today at 9:00' : 'Abre hoy a las 9:00')
         : (isEN ? 'Opens tomorrow at 9:00' : 'Abre mañana a las 9:00'));
@@ -329,7 +331,7 @@ function initTelefono(prefijoSelect, telefonoInput) {
 }
 
 // Calendario propio (mismo estilo que la web) para un campo de texto + un campo oculto ISO.
-function initDatePicker(fechaTexto, fechaReal) {
+function initDatePicker(fechaTexto, fechaReal, onChange) {
   if (!fechaTexto || !fechaReal) return;
   const hoy = new Date();
   hoy.setHours(0, 0, 0, 0);
@@ -413,6 +415,7 @@ function initDatePicker(fechaTexto, fechaReal) {
       fechaReal.value = iso;
       fechaTexto.value = `${d}/${m}/${y}`;
       cerrarCalendario();
+      if (onChange) onChange(iso);
     }
   });
 
@@ -475,7 +478,22 @@ function initDatePicker(fechaTexto, fechaReal) {
   // ---- abre un calendario propio, dibujado con el estilo de la web — ----
   // ---- el selector nativo del navegador no se puede maquetar y además ----
   // ---- tenía un bug conocido al abrir/cerrar, así que aquí no se usa. ----
-  initDatePicker(form.querySelector('#fechaTexto'), form.querySelector('#fechaReal'));
+  // Horas de reserva: cada 30 min desde las 9:00 hasta (cierre − 90 min):
+  // L-V 17:30, S-D 16:30. Se recalculan al elegir la fecha.
+  const horaSelect = form.querySelector('select[name="hora"]');
+  function rellenarHorasReserva(iso) {
+    const dia = iso ? new Date(iso + 'T12:00:00').getDay() : 1;
+    const ultima = ([0, 6].includes(dia) ? 16.5 : 17.5);
+    const previa = horaSelect.value || '10:00';
+    horaSelect.innerHTML = '';
+    for (let h = 9; h <= ultima; h += 0.5) {
+      const v = `${String(Math.floor(h)).padStart(2, '0')}:${h % 1 ? '30' : '00'}`;
+      horaSelect.add(new Option(`${Math.floor(h)}:${h % 1 ? '30' : '00'}`, v));
+    }
+    horaSelect.value = [...horaSelect.options].some((o) => o.value === previa) ? previa : '10:00';
+  }
+  if (horaSelect) rellenarHorasReserva(null);
+  initDatePicker(form.querySelector('#fechaTexto'), form.querySelector('#fechaReal'), rellenarHorasReserva);
 
   // ---- Teléfono: prefijo de país + número, con formato automático. La ----
   // ---- validación es del propio formulario (pattern + title HTML) — al ----
