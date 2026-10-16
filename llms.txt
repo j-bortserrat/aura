@@ -11,7 +11,7 @@ AURA es un local de brunch y café de especialidad. La Carta y los Eventos de es
 - [Eventos](eventos.html): catas, latte art y otros encuentros abiertos al público, con fecha, plazas y opción de apuntarse; también reserva del espacio para celebraciones privadas.
 - [Galería](galeria.html): fotos del local, los platos y el café.
 - [Cómo llegar](visitanos.html): dirección exacta, teléfono, horario y mapa.
-- [Reservas](reservas.html): reserva de mesa automática (hasta 4 personas) con confirmación al instante; grupos mayores o sin hueco, por WhatsApp.
+- [Reservas](reservas.html): reserva de mesa automática (hasta 6 personas, juntando mesas del mismo grupo) con confirmación al instante; grupos mayores o sin hueco, por WhatsApp.
 - [English version](en.html): sitio completo en inglés, misma estructura (en-carta.html, en-eventos.html, en-galeria.html, en-visitanos.html, en-reservas.html).
 
 ## Datos del negocio
@@ -22,7 +22,7 @@ AURA es un local de brunch y café de especialidad. La Carta y los Eventos de es
 - Horario: lunes a viernes 9:00–19:00; sábado y domingo 9:00–18:00
 - Teléfono / WhatsApp: +34 612 422 574
 - Instagram: https://www.instagram.com/aura_vlc/
-- Reservas: mesas de hasta 4 personas se confirman al instante (sistema propio con disponibilidad real); grupos mayores o sin hueco automático, por WhatsApp.
+- Reservas: mesas de hasta 6 personas (mesas del mismo grupo se juntan automáticamente) se confirman al instante (sistema propio con disponibilidad real); grupos mayores o sin hueco automático, por WhatsApp.
 
 ## Notas para agentes de IA
 
