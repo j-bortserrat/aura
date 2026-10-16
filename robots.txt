@@ -21,4 +21,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://j-bortserrat.github.io/aura/sitemap.xml
+Sitemap: https://auravalencia.es/sitemap.xml
