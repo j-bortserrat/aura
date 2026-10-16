@@ -1,146 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://aura-valencia.netlify.app/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aura-valencia.netlify.app/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aura-valencia.netlify.app/en.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aura-valencia.netlify.app/" />
+    <loc>https://j-bortserrat.github.io/aura/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://j-bortserrat.github.io/aura/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://j-bortserrat.github.io/aura/en.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://j-bortserrat.github.io/aura/" />
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://aura-valencia.netlify.app/en.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aura-valencia.netlify.app/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aura-valencia.netlify.app/en.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aura-valencia.netlify.app/" />
+    <loc>https://j-bortserrat.github.io/aura/en.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://j-bortserrat.github.io/aura/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://j-bortserrat.github.io/aura/en.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://j-bortserrat.github.io/aura/" />
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://aura-valencia.netlify.app/carta.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aura-valencia.netlify.app/carta.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aura-valencia.netlify.app/en-carta.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aura-valencia.netlify.app/carta.html" />
+    <loc>https://j-bortserrat.github.io/aura/carta.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://j-bortserrat.github.io/aura/carta.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://j-bortserrat.github.io/aura/en-carta.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://j-bortserrat.github.io/aura/carta.html" />
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://aura-valencia.netlify.app/en-carta.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aura-valencia.netlify.app/carta.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aura-valencia.netlify.app/en-carta.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aura-valencia.netlify.app/carta.html" />
+    <loc>https://j-bortserrat.github.io/aura/en-carta.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://j-bortserrat.github.io/aura/carta.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://j-bortserrat.github.io/aura/en-carta.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://j-bortserrat.github.io/aura/carta.html" />
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://aura-valencia.netlify.app/reservas.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aura-valencia.netlify.app/reservas.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aura-valencia.netlify.app/en-reservas.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aura-valencia.netlify.app/reservas.html" />
+    <loc>https://j-bortserrat.github.io/aura/reservas.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://j-bortserrat.github.io/aura/reservas.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://j-bortserrat.github.io/aura/en-reservas.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://j-bortserrat.github.io/aura/reservas.html" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aura-valencia.netlify.app/en-reservas.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aura-valencia.netlify.app/reservas.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aura-valencia.netlify.app/en-reservas.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aura-valencia.netlify.app/reservas.html" />
+    <loc>https://j-bortserrat.github.io/aura/en-reservas.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://j-bortserrat.github.io/aura/reservas.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://j-bortserrat.github.io/aura/en-reservas.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://j-bortserrat.github.io/aura/reservas.html" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aura-valencia.netlify.app/eventos.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aura-valencia.netlify.app/eventos.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aura-valencia.netlify.app/en-eventos.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aura-valencia.netlify.app/eventos.html" />
+    <loc>https://j-bortserrat.github.io/aura/eventos.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://j-bortserrat.github.io/aura/eventos.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://j-bortserrat.github.io/aura/en-eventos.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://j-bortserrat.github.io/aura/eventos.html" />
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aura-valencia.netlify.app/en-eventos.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aura-valencia.netlify.app/eventos.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aura-valencia.netlify.app/en-eventos.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aura-valencia.netlify.app/eventos.html" />
+    <loc>https://j-bortserrat.github.io/aura/en-eventos.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://j-bortserrat.github.io/aura/eventos.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://j-bortserrat.github.io/aura/en-eventos.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://j-bortserrat.github.io/aura/eventos.html" />
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aura-valencia.netlify.app/visitanos.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aura-valencia.netlify.app/visitanos.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aura-valencia.netlify.app/en-visitanos.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aura-valencia.netlify.app/visitanos.html" />
+    <loc>https://j-bortserrat.github.io/aura/visitanos.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://j-bortserrat.github.io/aura/visitanos.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://j-bortserrat.github.io/aura/en-visitanos.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://j-bortserrat.github.io/aura/visitanos.html" />
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aura-valencia.netlify.app/en-visitanos.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aura-valencia.netlify.app/visitanos.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aura-valencia.netlify.app/en-visitanos.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aura-valencia.netlify.app/visitanos.html" />
+    <loc>https://j-bortserrat.github.io/aura/en-visitanos.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://j-bortserrat.github.io/aura/visitanos.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://j-bortserrat.github.io/aura/en-visitanos.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://j-bortserrat.github.io/aura/visitanos.html" />
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aura-valencia.netlify.app/galeria.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aura-valencia.netlify.app/galeria.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aura-valencia.netlify.app/en-galeria.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aura-valencia.netlify.app/galeria.html" />
+    <loc>https://j-bortserrat.github.io/aura/galeria.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://j-bortserrat.github.io/aura/galeria.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://j-bortserrat.github.io/aura/en-galeria.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://j-bortserrat.github.io/aura/galeria.html" />
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://aura-valencia.netlify.app/en-galeria.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aura-valencia.netlify.app/galeria.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aura-valencia.netlify.app/en-galeria.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aura-valencia.netlify.app/galeria.html" />
+    <loc>https://j-bortserrat.github.io/aura/en-galeria.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://j-bortserrat.github.io/aura/galeria.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://j-bortserrat.github.io/aura/en-galeria.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://j-bortserrat.github.io/aura/galeria.html" />
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://aura-valencia.netlify.app/legal.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aura-valencia.netlify.app/legal.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aura-valencia.netlify.app/en-legal.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aura-valencia.netlify.app/legal.html" />
+    <loc>https://j-bortserrat.github.io/aura/legal.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://j-bortserrat.github.io/aura/legal.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://j-bortserrat.github.io/aura/en-legal.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://j-bortserrat.github.io/aura/legal.html" />
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://aura-valencia.netlify.app/en-legal.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aura-valencia.netlify.app/legal.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aura-valencia.netlify.app/en-legal.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aura-valencia.netlify.app/legal.html" />
+    <loc>https://j-bortserrat.github.io/aura/en-legal.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://j-bortserrat.github.io/aura/legal.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://j-bortserrat.github.io/aura/en-legal.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://j-bortserrat.github.io/aura/legal.html" />
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://aura-valencia.netlify.app/privacidad.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aura-valencia.netlify.app/privacidad.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aura-valencia.netlify.app/en-privacidad.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aura-valencia.netlify.app/privacidad.html" />
+    <loc>https://j-bortserrat.github.io/aura/privacidad.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://j-bortserrat.github.io/aura/privacidad.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://j-bortserrat.github.io/aura/en-privacidad.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://j-bortserrat.github.io/aura/privacidad.html" />
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://aura-valencia.netlify.app/en-privacidad.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aura-valencia.netlify.app/privacidad.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aura-valencia.netlify.app/en-privacidad.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aura-valencia.netlify.app/privacidad.html" />
+    <loc>https://j-bortserrat.github.io/aura/en-privacidad.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://j-bortserrat.github.io/aura/privacidad.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://j-bortserrat.github.io/aura/en-privacidad.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://j-bortserrat.github.io/aura/privacidad.html" />
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://aura-valencia.netlify.app/cookies.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aura-valencia.netlify.app/cookies.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aura-valencia.netlify.app/en-cookies.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aura-valencia.netlify.app/cookies.html" />
+    <loc>https://j-bortserrat.github.io/aura/cookies.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://j-bortserrat.github.io/aura/cookies.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://j-bortserrat.github.io/aura/en-cookies.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://j-bortserrat.github.io/aura/cookies.html" />
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://aura-valencia.netlify.app/en-cookies.html</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://aura-valencia.netlify.app/cookies.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://aura-valencia.netlify.app/en-cookies.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://aura-valencia.netlify.app/cookies.html" />
+    <loc>https://j-bortserrat.github.io/aura/en-cookies.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://j-bortserrat.github.io/aura/cookies.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://j-bortserrat.github.io/aura/en-cookies.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://j-bortserrat.github.io/aura/cookies.html" />
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
