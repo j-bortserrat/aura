@@ -20,6 +20,8 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
+// URL pública del sitio (scripts/site-config.json): cámbiala al dominio definitivo y vuelve a hornear.
+const SITE_URL = JSON.parse(readFileSync(join(ROOT, 'scripts', 'site-config.json'), 'utf8')).url.replace(/\/$/, '');
 
 const TALLERES_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/131CPxEHaCQD9SlgxJxuSr0AhGdZZLcna359Uv4-XitY/export?format=csv&gid=1547456886';
 const CARTA_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1PHh0xQYdxf3YcuI2_vE2Y6lAO_Az22scKLOVm3EwilY/export?format=csv&gid=1254248669';
@@ -342,6 +344,101 @@ function buildCarta(rows, isEN) {
   return { tabsHtml, panelsHtml };
 }
 
+// ---------- Datos estructurados (schema.org) generados desde las Sheets ----------
+
+const DIET_SCHEMA = {
+  veg: 'https://schema.org/VegetarianDiet',
+  vegan: 'https://schema.org/VeganDiet',
+  gf: 'https://schema.org/GlutenFreeDiet',
+  lac: 'https://schema.org/LowLactoseDiet',
+};
+
+function jsonLdTag(obj) {
+  const json = JSON.stringify(obj, null, 2).replace(/</g, '\\u003c');
+  return `<script type="application/ld+json">\n${json}\n</script>`;
+}
+
+function precioNumerico(txt) {
+  const m = String(txt || '').match(/(\d+(?:[.,]\d+)?)/);
+  return m ? m[1].replace(',', '.') : null;
+}
+
+// Carta -> Menu / MenuSection / MenuItem (con precio, descripción y dietas)
+function buildMenuJsonLd(rows, isEN, file) {
+  const visibles = rows.filter((r) => String(r.publicar || 'si').toLowerCase() !== 'no');
+  if (!visibles.length) return '';
+  const secciones = new Map();
+  visibles.forEach((r) => {
+    const nombreCat = isEN ? (r.categoria_en || r.categoria) : r.categoria;
+    if (!secciones.has(nombreCat)) {
+      secciones.set(nombreCat, { '@type': 'MenuSection', name: nombreCat, hasMenuItem: [], _orden: +r.orden_categoria || 999,
+        ...((isEN ? (r.categoria_nota_en || r.categoria_nota) : r.categoria_nota) ? { description: isEN ? (r.categoria_nota_en || r.categoria_nota) : r.categoria_nota } : {}) });
+    }
+    const item = { '@type': 'MenuItem', name: isEN ? (r.nombre_en || r.nombre) : r.nombre };
+    const desc = isEN ? (r.descripcion_en || r.descripcion) : r.descripcion;
+    if (desc) item.description = desc;
+    const precio = precioNumerico(r.precio);
+    if (precio) item.offers = { '@type': 'Offer', price: precio, priceCurrency: 'EUR' };
+    const dietas = DIET_COLUMNS.filter(([attr, col]) => DIET_SCHEMA[attr] && r[col] && r[col].trim() === '1').map(([attr]) => DIET_SCHEMA[attr]);
+    if (r.vegano && r.vegano.trim() === '1' && !dietas.includes(DIET_SCHEMA.veg)) dietas.push(DIET_SCHEMA.veg);
+    if (dietas.length) item.suitableForDiet = dietas;
+    const id = driveFileId(r.imagen);
+    if (id) item.image = `${SITE_URL}/images/carta/${id}.jpg`;
+    secciones.get(nombreCat).hasMenuItem.push(item);
+  });
+  const hasMenuSection = [...secciones.values()].sort((a, b) => a._orden - b._orden).map(({ _orden, ...sec }) => sec);
+  return jsonLdTag({
+    '@context': 'https://schema.org',
+    '@type': 'Menu',
+    name: isEN ? 'AURA menu' : 'Carta de AURA',
+    inLanguage: isEN ? 'en' : 'es',
+    url: `${SITE_URL}/${file}`,
+    provider: { '@type': 'CafeOrCoffeeShop', name: 'AURA', url: SITE_URL },
+    hasMenuSection,
+  });
+}
+
+function offsetMadrid(fecha) {
+  const parte = new Intl.DateTimeFormat('en', { timeZone: 'Europe/Madrid', timeZoneName: 'longOffset' }).formatToParts(fecha).find((p) => p.type === 'timeZoneName');
+  const m = parte && parte.value.match(/GMT([+-]\d{2}):?(\d{2})?/);
+  return m ? `${m[1]}:${m[2] || '00'}` : '+01:00';
+}
+
+// Talleres próximos -> Event
+function buildEventsJsonLd(items, isEN, imageMap, file) {
+  const hoy = new Date(); hoy.setHours(0, 0, 0, 0);
+  const eventos = items
+    .filter((t) => String(t.publicar || 'si').toLowerCase() !== 'no')
+    .map((t) => ({ t, f: parseFechaDate(t.fecha) }))
+    .filter((x) => x.f && x.f >= hoy)
+    .map(({ t, f }) => {
+      const hm = (t.hora || '').match(/(\d{1,2})[:.](\d{2})/);
+      const hh = hm ? hm[1].padStart(2, '0') : '00', mm = hm ? hm[2] : '00';
+      const iso = `${f.getFullYear()}-${String(f.getMonth() + 1).padStart(2, '0')}-${String(f.getDate()).padStart(2, '0')}`;
+      const ev = {
+        '@type': 'Event',
+        name: isEN ? (t.titulo_en || t.titulo) : t.titulo,
+        startDate: hm ? `${iso}T${hh}:${mm}:00${offsetMadrid(f)}` : iso,
+        eventStatus: 'https://schema.org/EventScheduled',
+        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+        location: {
+          '@type': 'Place', name: 'AURA',
+          address: { '@type': 'PostalAddress', streetAddress: 'Carrer de la Reina Na Germana, 9', postalCode: '46005', addressLocality: 'Valencia', addressCountry: 'ES' },
+        },
+        organizer: { '@type': 'Organization', name: 'AURA', url: SITE_URL },
+        url: `${SITE_URL}/${file}`,
+      };
+      const texto = isEN ? (t.texto_en || t.texto) : t.texto;
+      if (texto) ev.description = texto;
+      if (+t.plazas) ev.maximumAttendeeCapacity = +t.plazas;
+      const id = driveFileId(t.imagen);
+      if (id) ev.image = `${SITE_URL}/${(imageMap[id] || `images/talleres/${id}.jpg`)}`;
+      return ev;
+    });
+  if (!eventos.length) return '';
+  return jsonLdTag({ '@context': 'https://schema.org', '@graph': eventos });
+}
+
 // ---------- reemplazo entre marcadores ----------
 
 function replaceBetween(html, marker, replacement) {
@@ -383,6 +480,7 @@ async function main() {
 
     const talleresHtml = buildTalleresHtml(talleresRows, isEN, imageMap);
     html = replaceBetween(html, 'TALLERES', talleresHtml);
+    html = replaceBetween(html, 'EVENTOS_JSONLD', buildEventsJsonLd(talleresRows, isEN, imageMap, file));
 
     if (html !== original) {
       writeFileSync(path, html, 'utf8');
@@ -403,6 +501,7 @@ async function main() {
       html = replaceBetween(html, 'CARTA_TABS', carta.tabsHtml);
       html = replaceBetween(html, 'CARTA_PANELS', carta.panelsHtml);
     }
+    html = replaceBetween(html, 'CARTA_JSONLD', buildMenuJsonLd(cartaRows, isEN, file));
 
     if (html !== original) {
       writeFileSync(path, html, 'utf8');

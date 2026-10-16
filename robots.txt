@@ -21,5 +21,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-# Sitemap: pendiente de añadir cuando se confirme el dominio definitivo
-# (la directiva Sitemap requiere una URL absoluta).
+Sitemap: https://aura-valencia.netlify.app/sitemap.xml
