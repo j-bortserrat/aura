@@ -66,6 +66,7 @@ function csvToObjects(text) {
     .map((r) => {
       const obj = {};
       headers.forEach((h, i) => { obj[h] = (r[i] || '').trim(); });
+      if (obj.alergenos) obj.alergenos = obj.alergenos.replace(/^(\d{1,2}),(\d{1,2}),20(\d{2})$/, (m, a, b, y) => `${a},${b},${+y}`); // Sheets convierte "1,8,9" en fecha "1,8,2009"
       return obj;
     });
 }
