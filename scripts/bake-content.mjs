@@ -24,7 +24,7 @@ const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const SITE_URL = JSON.parse(readFileSync(join(ROOT, 'scripts', 'site-config.json'), 'utf8')).url.replace(/\/$/, '');
 
 const TALLERES_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/131CPxEHaCQD9SlgxJxuSr0AhGdZZLcna359Uv4-XitY/export?format=csv&gid=1547456886';
-const CARTA_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1PHh0xQYdxf3YcuI2_vE2Y6lAO_Az22scKLOVm3EwilY/export?format=csv&gid=1254248669';
+const CARTA_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1PHh0xQYdxf3YcuI2_vE2Y6lAO_Az22scKLOVm3EwilY/export?format=csv&gid=148567757';
 const WHATSAPP_NUMBER_TALLERES = '34612422574';
 const WHATSAPP_ICON_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c-5.4 0-9.8 4.4-9.8 9.8 0 1.7.5 3.4 1.3 4.9L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.4 0 9.8-4.4 9.8-9.8s-4.4-9.8-9.8-9.8zm0 17.9c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3c-.8-1.3-1.3-2.9-1.3-4.5 0-4.6 3.7-8.3 8.3-8.3s8.3 3.7 8.3 8.3-3.7 8.4-8.2 8.4zm4.5-6.2c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.3-.4.1-.1.2-.2.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 4 3.5.6.2 1 .4 1.3.5.6.2 1.1.2 1.5.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>';
 

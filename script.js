@@ -893,7 +893,7 @@ const WHATSAPP_NUMBER_TALLERES = '34612422574';
 // enlace > Lector, y usar .../export?format=csv&gid=...).
 // Mientras esté vacía, la carta se queda tal cual está escrita en el HTML
 // (no se toca nada) — esto es 100% opcional y no puede romper la carta actual.
-const CARTA_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1PHh0xQYdxf3YcuI2_vE2Y6lAO_Az22scKLOVm3EwilY/export?format=csv&gid=1254248669';
+const CARTA_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1PHh0xQYdxf3YcuI2_vE2Y6lAO_Az22scKLOVm3EwilY/export?format=csv&gid=148567757';
 
 (function () {
   if (!CARTA_SHEET_CSV_URL) return;
