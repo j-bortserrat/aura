@@ -934,11 +934,12 @@ h3 { font-size: 1.4rem; }
     flex-direction: column;
     padding: 24px;
     gap: 18px;
-    transform: translateY(-130%);
-    transition: transform .3s var(--ease);
+    transform: translateY(calc(-100% - 70px));
+    visibility: hidden;
+    transition: transform .3s var(--ease), visibility 0s .3s;
     border-bottom: 1px solid rgba(237, 218, 214,.08);
   }
-  .nav__links.is-open { transform: translateY(0); }
+  .nav__links.is-open { transform: translateY(0); visibility: visible; transition: transform .3s var(--ease), visibility 0s; }
   .nav__cta { padding: 8px 16px; font-size: 12px; }
   .nav__lang { font-size: 11px; }
   .nav__right { gap: 12px; }
@@ -1255,6 +1256,19 @@ body.ficha-open { overflow: hidden; }
 @media (max-width: 700px) {
   .whatsapp-float, .instagram-float { display: none; }
 
+  /* carta: aprovechar el ancho de la pantalla */
+  .carta .container { padding: 0 8px; }
+  .section.carta { padding: 84px 0 56px; }
+  .carta .section__head { padding: 0 16px; margin-bottom: 18px; }
+  .carta .section__head .eyebrow { font-size: 10px; letter-spacing: .2em; margin-bottom: 6px; }
+  .carta .section__head h1 { font-size: 1.9rem; margin: 0 0 6px; }
+  .carta .section__head .lede { font-size: .9rem; line-height: 1.45; margin: 0; }
+  .carta .menu { padding: 18px 12px; border-radius: 20px; }
+  .menu__intro { padding: 8px 12px; margin-bottom: 12px; gap: 2px; border-radius: 6px; }
+  .menu__intro strong { font-size: 1rem; line-height: 1.2; }
+  .menu__intro span { font-size: .72rem; line-height: 1.35; }
+  .menu__filters, .menu__tabs { margin-left: -2px; margin-right: -2px; }
+
   /* filtros y categorías: una sola barra que se desliza a un lado */
   .menu__filters, .menu__tabs {
     flex-wrap: nowrap;
@@ -1271,3 +1285,25 @@ body.ficha-open { overflow: hidden; }
   .menu__tabs { margin-bottom: 22px; padding-bottom: 16px; }
 }
 .menu__notes--aviso { margin-top: 10px; color: var(--cream-2); }
+
+/* Ficha en móvil: carrusel que deja ver un trozo de la anterior y la siguiente */
+@media (max-width: 700px) {
+  .ficha--swipe { padding: 0; backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(22,9,7,.9); }
+  .ficha--swipe > .ficha__card, .ficha--swipe > .ficha__nav { display: none; }
+  .ficha__track {
+    display: flex; gap: 10px; width: 100%;
+    overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+    padding: 0 10vw; box-sizing: border-box; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .ficha__track::-webkit-scrollbar { display: none; }
+  .ficha__slide { contain: layout paint; flex: 0 0 80vw; scroll-snap-align: center; scroll-snap-stop: always; display: flex; align-items: center; }
+  .ficha__slide .ficha__card { width: 100%; opacity: .55; transition: opacity .2s; }
+  .ficha__slide--c .ficha__card { opacity: 1; }
+  .ficha__x {
+    position: fixed; top: 14px; right: 14px; z-index: 5; width: 38px; height: 38px; border-radius: 50%;
+    border: 0; background: rgba(42,20,20,.7); color: var(--cream); font-size: 24px; line-height: 1; cursor: pointer;
+  }
+}
+@media (min-width: 701px) { .ficha__track, .ficha__x { display: none; } }
+.carta__official { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+@media (max-width: 700px) { .carta__official { flex-direction: column; align-items: stretch; } .carta__official .btn { text-align: center; } }

@@ -159,9 +159,85 @@ function fichaListaNavegable() {
     .filter((it) => !it.hidden);
 }
 
+function fichaDietaTags(item) {
+  const dietas = { veg: ['Vegetariano', 'Vegetarian'], vegan: ['Vegano', 'Vegan'], keto: ['Keto', 'Keto'], gf: ['Sin gluten', 'Gluten-free'], lac: ['Sin lactosa', 'Lactose-free'] };
+  const esBebida = ['cafe', 'bebidas'].includes(item.closest('.menu__panel')?.dataset.panel);
+  if (esBebida) return [];
+  return Object.entries(dietas).filter(([k]) => item.dataset[k] === '1').map(([k, l]) => [k, l[isEN ? 1 : 0]]);
+}
+
+// ---- Móvil: carrusel con un trozo de la ficha anterior y la siguiente a los lados ----
+const fichaMovil = () => matchMedia('(max-width: 700px)').matches;
+let fichaTrack = null, fichaX = null, fichaScrollT = null, fichaTocando = false, fichaTabPendiente = null;
+
+function crearSlide(item, centro) {
+  const nombreEl = item.querySelector('.menu__name');
+  const nombre = nombreEl ? nombreEl.firstChild.textContent.trim() : '';
+  const descEl = item.querySelector('p');
+  const slide = document.createElement('div');
+  slide.className = 'ficha__slide' + (centro ? ' ficha__slide--c' : '');
+  slide.innerHTML = `<div class="ficha__card"><div class="ficha__foto"><img class="ficha__img" alt="" /><img class="ficha__ph" src="assets/brand/logo-circular-transparent.png" alt="" aria-hidden="true" /><span class="ficha__foto-nota">${isEN ? 'Photo coming soon' : 'Foto próximamente'}</span></div><div class="ficha__body"><div class="ficha__tags"></div><h3 class="ficha__nombre"></h3><p class="ficha__precio"></p><p class="ficha__descripcion"></p></div></div>`;
+  slide.querySelector('.ficha__nombre').textContent = nombre;
+  slide.querySelector('.ficha__precio').textContent = item.querySelector('.price')?.textContent.trim() || '';
+  const d = slide.querySelector('.ficha__descripcion');
+  d.textContent = descEl ? descEl.textContent.trim() : ''; d.hidden = !descEl;
+  const tags = slide.querySelector('.ficha__tags');
+  const et = fichaDietaTags(item);
+  tags.innerHTML = et.map(([k, t]) => `<span class="ficha__tag"><span class="diet-ico diet-ico--${k}"></span>${t}</span>`).join('');
+  tags.hidden = !et.length;
+  if (item.dataset.img) {
+    const foto = slide.querySelector('.ficha__foto'), img = slide.querySelector('.ficha__img');
+    img.onload = () => foto.classList.add('has-photo');
+    img.onerror = () => { if (item.dataset.imgRemote && img.src !== item.dataset.imgRemote) img.src = item.dataset.imgRemote; };
+    img.alt = nombre; img.decoding = 'async'; img.src = item.dataset.img;
+  }
+  return slide;
+}
+
+function centrarTrack() {
+  const c = fichaTrack.querySelector('.ficha__slide--c');
+  fichaTrack.scrollTo({ left: c.offsetLeft - (fichaTrack.clientWidth - c.offsetWidth) / 2, behavior: 'instant' });
+}
+
+function construirTrack(item) {
+  if (!fichaTrack) {
+    fichaTrack = document.createElement('div'); fichaTrack.className = 'ficha__track';
+    fichaX = document.createElement('button'); fichaX.type = 'button'; fichaX.className = 'ficha__x'; fichaX.innerHTML = '&times;'; fichaX.setAttribute('aria-label', isEN ? 'Close' : 'Cerrar');
+    fichaX.addEventListener('click', cerrarFicha);
+    ficha.append(fichaTrack, fichaX);
+    fichaTrack.addEventListener('click', (e) => { if (e.target === fichaTrack) cerrarFicha(); });
+    fichaTrack.addEventListener('touchstart', () => { fichaTocando = true; }, { passive: true });
+    fichaTrack.addEventListener('touchend', () => { fichaTocando = false; }, { passive: true });
+    const evaluar = () => {
+      if (fichaTocando || ficha.hidden || !ficha.classList.contains('is-open')) return;
+      const slides = [...fichaTrack.children];
+      if (slides.length < 2) return;
+      const mid = fichaTrack.scrollLeft + fichaTrack.clientWidth / 2;
+      let best = 0, dist = Infinity;
+      slides.forEach((sl, i) => { const d = Math.abs(sl.offsetLeft + sl.offsetWidth / 2 - mid); if (d < dist) { dist = d; best = i; } });
+      const centro = slides.findIndex((sl) => sl.classList.contains('ficha__slide--c'));
+      if (best !== centro) irFicha(best < centro ? -1 : 1);
+    };
+    if ('onscrollend' in window) fichaTrack.addEventListener('scrollend', evaluar);
+    fichaTrack.addEventListener('scroll', () => {
+      clearTimeout(fichaScrollT);
+      fichaScrollT = setTimeout(evaluar, 'onscrollend' in window ? 400 : 70);
+    }, { passive: true });
+  }
+  const lista = fichaListaNavegable();
+  const idx = lista.indexOf(item), n = lista.length;
+  fichaTrack.innerHTML = '';
+  if (n > 1) fichaTrack.append(crearSlide(lista[(idx - 1 + n) % n], false));
+  fichaTrack.append(crearSlide(item, true));
+  if (n > 1) fichaTrack.append(crearSlide(lista[(idx + 1) % n], false));
+  centrarTrack();
+}
+
 function abrirFicha(item) {
   if (!ficha) return;
   fichaActual = item;
+  const swipe = fichaMovil();
+  if (!swipe) {
   const nombreEl = item.querySelector('.menu__name');
   fichaNombre.textContent = nombreEl ? nombreEl.firstChild.textContent.trim() : '';
   fichaPrecio.textContent = item.querySelector('.price')?.textContent.trim() || '';
@@ -169,10 +245,7 @@ function abrirFicha(item) {
   fichaDesc.textContent = descEl ? descEl.textContent.trim() : '';
   fichaDesc.hidden = !descEl;
 
-  const etiquetas = [];
-  const dietas = { veg: ['Vegetariano', 'Vegetarian'], vegan: ['Vegano', 'Vegan'], keto: ['Keto', 'Keto'], gf: ['Sin gluten', 'Gluten-free'], lac: ['Sin lactosa', 'Lactose-free'] };
-  const esBebida = ['cafe', 'bebidas'].includes(item.closest('.menu__panel')?.dataset.panel);
-  if (!esBebida) Object.entries(dietas).forEach(([k, l]) => { if (item.dataset[k] === '1') etiquetas.push([k, l[isEN ? 1 : 0]]); });
+  const etiquetas = fichaDietaTags(item);
   fichaTags.innerHTML = etiquetas.map(([k, t]) => `<span class="ficha__tag"><span class="diet-ico diet-ico--${k}"></span>${t}</span>`).join('');
   fichaTags.hidden = !etiquetas.length;
 
@@ -194,11 +267,15 @@ function abrirFicha(item) {
     img.src = item.dataset.img;
   }
 
+  }
+
   fichaUltimoFoco = document.activeElement;
+  ficha.classList.toggle('ficha--swipe', swipe);
   ficha.hidden = false;
+  if (swipe) construirTrack(item);
   requestAnimationFrame(() => ficha.classList.add('is-open'));
   document.body.classList.add('ficha-open');
-  fichaCerrar.focus();
+  if (!swipe) fichaCerrar.focus();
   history.replaceState(null, '', '#' + item.id);
 }
 
@@ -208,18 +285,44 @@ function irFicha(dir) {
   if (!lista.length || idx === -1) return;
   const item = lista[(idx + dir + lista.length) % lista.length];
   const panel = item.closest('.menu__panel');
-  if (panel && !panel.classList.contains('is-active')) {
-    const tab = document.querySelector(`.menu__tab[data-tab="${panel.dataset.panel}"]`);
-    if (tab) tab.click();
+  const tab = panel && !panel.classList.contains('is-active') ? document.querySelector(`.menu__tab[data-tab="${panel.dataset.panel}"]`) : null;
+  if (ficha.classList.contains('ficha--swipe') && !ficha.hidden && fichaTrack && lista.length >= 3) {
+    // Móvil: se reaprovechan las otras dos fichas (sin recargar fotos) y el cambio de
+    // pestaña de fondo, que repinta media carta, se aplaza hasta cerrar.
+    fichaTabPendiente = tab;
+    moverTrack(dir, item, lista);
+    return;
   }
+  if (tab) tab.click();
   abrirFicha(item);
+}
+
+function moverTrack(dir, item, lista) {
+  const n = lista.length, idx = lista.indexOf(item);
+  const slides = [...fichaTrack.children];
+  fichaActual = item;
+  if (dir > 0) {
+    slides[0].remove();
+    slides[1].classList.remove('ficha__slide--c');
+    slides[2].classList.add('ficha__slide--c');
+    fichaTrack.append(crearSlide(lista[(idx + 1) % n], false));
+  } else {
+    slides[2].remove();
+    slides[1].classList.remove('ficha__slide--c');
+    slides[0].classList.add('ficha__slide--c');
+    fichaTrack.prepend(crearSlide(lista[(idx - 1 + n) % n], false));
+  }
+  centrarTrack();
+  history.replaceState(null, '', '#' + item.id);
 }
 
 function cerrarFicha() {
   if (!ficha || ficha.hidden) return;
+  clearTimeout(fichaScrollT);
   ficha.classList.remove('is-open');
   document.body.classList.remove('ficha-open');
   setTimeout(() => { ficha.hidden = true; }, 200);
+  if (fichaTabPendiente) { const t = fichaTabPendiente; fichaTabPendiente = null; setTimeout(() => t.click(), 220); }
   if (fichaUltimoFoco) fichaUltimoFoco.focus();
 }
 
