@@ -1219,7 +1219,8 @@ body.ficha-open { overflow: hidden; }
 .menu__filter .diet-ico { font-size: 1.05em; }
 .ficha__tag { display: inline-flex; align-items: center; gap: 6px; }
 /* Cafés y bebidas cuentan como vegetarianos para el filtro, pero sin icono */
-.menu__panel[data-panel="cafe"] .menu__diets,
+.menu__panel[data-panel="bebidas-calientes"] .menu__diets,
+.menu__panel[data-panel="bebidas-frias"] .menu__diets,
 .menu__panel[data-panel="bebidas"] .menu__diets { display: none; }
 
 /* Foto real en la ficha (si el plato tiene "Imagen" en la Sheet) */

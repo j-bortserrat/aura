@@ -161,7 +161,7 @@ function fichaListaNavegable() {
 
 function fichaDietaTags(item) {
   const dietas = { veg: ['Vegetariano', 'Vegetarian'], vegan: ['Vegano', 'Vegan'], keto: ['Keto', 'Keto'], gf: ['Sin gluten', 'Gluten-free'], lac: ['Sin lactosa', 'Lactose-free'] };
-  const esBebida = ['cafe', 'bebidas'].includes(item.closest('.menu__panel')?.dataset.panel);
+  const esBebida = ['bebidas-calientes', 'bebidas-frias', 'bebidas'].includes(item.closest('.menu__panel')?.dataset.panel);
   if (esBebida) return [];
   return Object.entries(dietas).filter(([k]) => item.dataset[k] === '1').map(([k, l]) => [k, l[isEN ? 1 : 0]]);
 }
@@ -996,7 +996,7 @@ const WHATSAPP_NUMBER_TALLERES = '34612422574';
 // enlace > Lector, y usar .../export?format=csv&gid=...).
 // Mientras esté vacía, la carta se queda tal cual está escrita en el HTML
 // (no se toca nada) — esto es 100% opcional y no puede romper la carta actual.
-const CARTA_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1PHh0xQYdxf3YcuI2_vE2Y6lAO_Az22scKLOVm3EwilY/export?format=csv&gid=148567757';
+const CARTA_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1PHh0xQYdxf3YcuI2_vE2Y6lAO_Az22scKLOVm3EwilY/export?format=csv&gid=1208842099';
 
 (function () {
   if (!CARTA_SHEET_CSV_URL) return;

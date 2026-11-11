@@ -6,7 +6,7 @@ import csv, re, html, sys, os, urllib.request, datetime
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else '.'
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-URL = 'https://docs.google.com/spreadsheets/d/1PHh0xQYdxf3YcuI2_vE2Y6lAO_Az22scKLOVm3EwilY/export?format=csv&gid=148567757'
+URL = 'https://docs.google.com/spreadsheets/d/1PHh0xQYdxf3YcuI2_vE2Y6lAO_Az22scKLOVm3EwilY/export?format=csv&gid=1208842099'
 import subprocess
 rows = list(csv.reader(subprocess.run(['curl', '-sL', URL], capture_output=True, text=True, check=True).stdout.splitlines(True)))
 H = rows[0]
