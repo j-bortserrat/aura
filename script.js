@@ -377,14 +377,26 @@ if (ficha) {
     if (mapFrame && !mapFrame.src) mapFrame.src = mapFrame.dataset.src;
     if (mapWrap) mapWrap.classList.add('ok');
   }
+  // Etiqueta de Google Ads: solo se carga con consentimiento.
+  function loadGoogleAds() {
+    if (window.gtag) return;
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-11180807341';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', 'AW-11180807341');
+  }
   function setChoice(v) {
     try { localStorage.setItem(KEY, v); } catch (e) {}
     if (banner) banner.classList.remove('show');
-    if (v === 'accept') loadThirdPartyFrames();
+    if (v === 'accept') { loadThirdPartyFrames(); loadGoogleAds(); }
   }
   let choice = null;
   try { choice = localStorage.getItem(KEY); } catch (e) {}
-  if (choice === 'accept') loadThirdPartyFrames();
+  if (choice === 'accept') { loadThirdPartyFrames(); loadGoogleAds(); }
   else if (!choice && banner) banner.classList.add('show');
 
   document.getElementById('ckAccept')?.addEventListener('click', () => setChoice('accept'));
@@ -1223,4 +1235,65 @@ const CARTA_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1PHh0xQYdxf3
   if (v.paused) {
     ['touchstart', 'click', 'scroll'].forEach((ev) => document.addEventListener(ev, () => { if (v.paused) intentar(); }, { once: true, passive: true }));
   }
+})();
+
+// ---- Canal de comunicación de acoso (acoso.html / en-acoso.html) ----
+// Endpoint del Apps Script de scripts/apps-script-acoso.gs. Vacío = canal sin activar.
+const ACOSO_APPS_SCRIPT_URL = '';
+(() => {
+  const form = document.getElementById('acosoForm');
+  if (!form) return;
+  const en = document.documentElement.lang === 'en';
+  const tx = en ? {
+    empty: 'Tell us what happened so we can send it.', priv: 'Please confirm you have read the data processing information.',
+    net: "We couldn't send it. Try again or use another way to get in touch.", off: 'The channel is not active yet. Please use another way to get in touch.',
+    sending: 'Sending…', ok: 'Your report has been sent successfully.', ref: 'Keep this reference:',
+  } : {
+    empty: 'Cuéntanos qué ha ocurrido para poder enviarla.', priv: 'Marca que has leído la información sobre el tratamiento de datos.',
+    net: 'No hemos podido enviarla. Inténtalo de nuevo o utiliza otra vía de contacto.', off: 'El canal todavía no está activo. Usa otra vía de contacto.',
+    sending: 'Enviando…', ok: 'Tu comunicación se ha enviado correctamente.', ref: 'Conserva esta referencia:',
+  };
+  const abrir = document.getElementById('acosoAbrir');
+  const panel = document.getElementById('acosoPanel');
+  const mostrar = () => {
+    panel.hidden = false;
+    abrir.setAttribute('aria-expanded', 'true');
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  abrir.addEventListener('click', mostrar);
+  if (location.hash === '#comunicar') panel.hidden = false;
+  const status = document.getElementById('acosoStatus');
+  const btn = form.querySelector('button[type="submit"]');
+  const setStatus = (tipo, texto) => {
+    status.className = 'reservas__status reservas__status--' + tipo;
+    status.textContent = texto;
+    status.hidden = false;
+  };
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const d = new FormData(form);
+    if (!String(d.get('que') || '').trim()) return setStatus('error', tx.empty);
+    if (!document.getElementById('acosoPriv').checked) return setStatus('error', tx.priv);
+    if (d.get('web')) return; // honeypot
+    if (!ACOSO_APPS_SCRIPT_URL) return setStatus('error', tx.off);
+    btn.disabled = true;
+    setStatus('info', tx.sending);
+    fetch(ACOSO_APPS_SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({
+        que: d.get('que'), cuando: d.get('cuando'), continua: d.get('continua'),
+        personas: d.get('personas'), urgente: d.get('urgente') ? 'sí' : 'no', contacto: d.get('contacto'),
+        idioma: en ? 'en' : 'es',
+      }),
+    })
+      .then((r) => r.json())
+      .then((res) => {
+        if (!res.ok) throw new Error(res.error || 'error');
+        setStatus('ok', `${tx.ok} ${tx.ref} ${res.ref}`);
+        form.reset();
+      })
+      .catch(() => setStatus('error', tx.net))
+      .finally(() => { btn.disabled = false; });
+  });
 })();

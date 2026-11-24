@@ -1308,3 +1308,17 @@ body.ficha-open { overflow: hidden; }
 @media (min-width: 701px) { .ficha__track, .ficha__x { display: none; } }
 .carta__official { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
 @media (max-width: 700px) { .carta__official { flex-direction: column; align-items: stretch; } .carta__official .btn { text-align: center; } }
+
+/* Prevención del acoso */
+.acoso__lead { font-family: 'Fraunces', serif; font-size: 1.35rem; color: var(--cream); line-height: 1.4; }
+.acoso__actions { display: flex; flex-wrap: wrap; gap: 14px; margin: 26px 0 8px; }
+.acoso__actions .btn { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
+.acoso__actions .btn small { font-size: .72rem; font-weight: 300; opacity: .75; }
+.acoso__form { margin: 14px 0 0; max-width: none; }
+.reservas__form label.acoso__check { flex-direction: row; align-items: flex-start; gap: 10px; font-size: .92rem; letter-spacing: 0; text-transform: none; color: var(--cream-2); font-weight: 300; }
+.acoso__check a { color: var(--pink); }
+.reservas__form .acoso__check input { margin: 3px 0 0; padding: 0; width: 18px; height: 18px; flex: none; }
+.acoso__note { display: block; color: var(--muted); font-size: .8rem; font-weight: 300; letter-spacing: 0; text-transform: none; }
+.acoso__hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.acoso__ref { font-family: 'Fraunces', serif; letter-spacing: .06em; }
+@media (max-width: 700px) { .acoso__actions .btn { width: 100%; } }
