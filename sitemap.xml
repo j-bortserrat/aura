@@ -144,4 +144,20 @@
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
+  <url>
+    <loc>https://auravalencia.es/acoso.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://auravalencia.es/acoso.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://auravalencia.es/en-acoso.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auravalencia.es/acoso.html" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://auravalencia.es/en-acoso.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://auravalencia.es/acoso.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://auravalencia.es/en-acoso.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://auravalencia.es/acoso.html" />
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>

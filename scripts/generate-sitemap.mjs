@@ -19,6 +19,7 @@ const PAGINAS = [
   ['legal.html', 'en-legal.html', '0.2', 'yearly'],
   ['privacidad.html', 'en-privacidad.html', '0.2', 'yearly'],
   ['cookies.html', 'en-cookies.html', '0.2', 'yearly'],
+  ['acoso.html', 'en-acoso.html', '0.3', 'yearly'],
 ];
 
 const url = (f) => `${SITE}/${f === 'index.html' ? '' : f}`;
