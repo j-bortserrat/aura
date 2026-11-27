@@ -15,7 +15,7 @@
 // Pensado para ejecutarse a diario desde GitHub Actions
 // (.github/workflows/bake-content.yml), pero funciona igual en local.
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -24,13 +24,14 @@ const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 const SITE_URL = JSON.parse(readFileSync(join(ROOT, 'scripts', 'site-config.json'), 'utf8')).url.replace(/\/$/, '');
 
 const TALLERES_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/131CPxEHaCQD9SlgxJxuSr0AhGdZZLcna359Uv4-XitY/export?format=csv&gid=1547456886';
-const CARTA_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1PHh0xQYdxf3YcuI2_vE2Y6lAO_Az22scKLOVm3EwilY/export?format=csv&gid=1208842099';
+const CARTA_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1kfoomnbmHi3ITIu1EZ7Fp0Jq2UB49bOS/export?format=csv&gid=2009829980';
 const WHATSAPP_NUMBER_TALLERES = '34612422574';
 const WHATSAPP_ICON_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c-5.4 0-9.8 4.4-9.8 9.8 0 1.7.5 3.4 1.3 4.9L2 22l5.2-1.4c1.4.8 3.1 1.2 4.8 1.2 5.4 0 9.8-4.4 9.8-9.8s-4.4-9.8-9.8-9.8zm0 17.9c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3c-.8-1.3-1.3-2.9-1.3-4.5 0-4.6 3.7-8.3 8.3-8.3s8.3 3.7 8.3 8.3-3.7 8.4-8.2 8.4zm4.5-6.2c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.3-.4.1-.1.2-.2.2-.4.1-.2 0-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9 0 1.1.8 2.2.9 2.4.1.2 1.6 2.5 4 3.5.6.2 1 .4 1.3.5.6.2 1.1.2 1.5.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>';
 
 const CARTA_PAGES = [
   { file: 'carta.html', isEN: false },
   { file: 'en-carta.html', isEN: true },
+  { file: 'uk-carta.html', isEN: true, uk: true }, // ucraniano: se traduce desde scripts/carta-uk.json
 ];
 const TALLERES_PAGES = [
   { file: 'eventos.html', isEN: false },
@@ -249,10 +250,11 @@ function dietDataAttrs(it) {
   return DIET_COLUMNS.map(([attr, col]) => ` data-${attr}="${it[col] && it[col].trim() === '1' ? '1' : '0'}"`).join('');
 }
 
-const DIET_LABELS = { veg: ['Vegetariano', 'Vegetarian'], vegan: ['Vegano', 'Vegan'], keto: ['Keto', 'Keto'], gf: ['Sin gluten', 'Gluten-free'], lac: ['Sin lactosa', 'Lactose-free'] };
+const DIET_LABELS = { veg: ['Vegetariano', 'Vegetarian', 'Вегетаріанське'], vegan: ['Vegano', 'Vegan', 'Веганське'], keto: ['Keto', 'Keto', 'Кето'], gf: ['Sin gluten', 'Gluten-free', 'Без глютену'], lac: ['Sin lactosa', 'Lactose-free', 'Без лактози'] };
+let DIET_LANG_IDX = 0; // 0 es, 1 en, 2 uk (se fija antes de pintar cada página)
 function dietIconsHtml(it, isEN) {
   const icons = DIET_COLUMNS.filter(([, col]) => it[col] && it[col].trim() === '1')
-    .map(([attr]) => { const l = DIET_LABELS[attr][isEN ? 1 : 0]; return `<span class="diet-ico diet-ico--${attr}" role="img" aria-label="${l}" title="${l}"></span>`; }).join('');
+    .map(([attr]) => { const l = DIET_LABELS[attr][DIET_LANG_IDX]; return `<span class="diet-ico diet-ico--${attr}" role="img" aria-label="${l}" title="${l}"></span>`; }).join('');
   return icons ? `<span class="menu__diets">${icons}</span>` : '';
 }
 
@@ -265,6 +267,25 @@ function menuItemId(usedIds, categoriaId, nombreOriginal) {
   while (usedIds.has(id)) { id = `${base}-${n}`; n++; }
   usedIds.add(id);
   return id;
+}
+
+// Traducción al ucraniano: columnas *_uk de la Sheet; si faltan, scripts/carta-uk.json;
+// y si tampoco hay, el inglés. Se aplica sobre las filas como si fueran las columnas *_en.
+const CARTA_UK = JSON.parse(readFileSync(join(ROOT, 'scripts', 'carta-uk.json'), 'utf8'));
+function cartaFilasUk(rows) {
+  const primero = (...v) => v.find((x) => x !== undefined && x !== null && String(x).trim() !== '');
+  return rows.map((r) => {
+    const cat = CARTA_UK.categorias[r.categoria] || {};
+    const plato = CARTA_UK.platos[`${r.categoria}|${r.subcategoria}|${r.nombre}`] || {};
+    return {
+      ...r,
+      categoria_en: primero(r.categoria_uk, cat.nombre, r.categoria_en),
+      categoria_nota_en: primero(r.categoria_nota_uk, cat.nota, r.categoria_nota_en) || '',
+      subcategoria_en: primero(r.subcategoria_uk, CARTA_UK.subcategorias[r.subcategoria], r.subcategoria_en),
+      nombre_en: primero(r.nombre_uk, plato.nombre, r.nombre_en),
+      descripcion_en: primero(r.descripcion_uk, plato.descripcion, r.descripcion_en) || '',
+    };
+  });
 }
 
 // ---------- Carta: genera el mismo HTML que pinta renderCarta() en el cliente ----------
@@ -365,7 +386,7 @@ function precioNumerico(txt) {
 }
 
 // Carta -> Menu / MenuSection / MenuItem (con precio, descripción y dietas)
-function buildMenuJsonLd(rows, isEN, file) {
+function buildMenuJsonLd(rows, isEN, file, uk = false) {
   const visibles = rows.filter((r) => String(r.publicar || 'si').toLowerCase() !== 'no');
   if (!visibles.length) return '';
   const secciones = new Map();
@@ -391,8 +412,8 @@ function buildMenuJsonLd(rows, isEN, file) {
   return jsonLdTag({
     '@context': 'https://schema.org',
     '@type': 'Menu',
-    name: isEN ? 'AURA menu' : 'Carta de AURA',
-    inLanguage: isEN ? 'en' : 'es',
+    name: uk ? 'Меню AURA' : isEN ? 'AURA menu' : 'Carta de AURA',
+    inLanguage: uk ? 'uk' : isEN ? 'en' : 'es',
     url: `${SITE_URL}/${file}`,
     provider: { '@type': 'CafeOrCoffeeShop', name: 'AURA', url: SITE_URL },
     hasMenuSection,
@@ -492,17 +513,20 @@ async function main() {
     }
   }
 
-  for (const { file, isEN } of CARTA_PAGES) {
+  for (const { file, isEN, uk } of CARTA_PAGES) {
     const path = join(ROOT, file);
+    if (!existsSync(path)) continue;
     let html = readFileSync(path, 'utf8');
     const original = html;
+    DIET_LANG_IDX = uk ? 2 : isEN ? 1 : 0;
+    const filas = uk ? cartaFilasUk(cartaRows) : cartaRows;
 
-    const carta = buildCarta(cartaRows, isEN);
+    const carta = buildCarta(filas, isEN);
     if (carta) {
       html = replaceBetween(html, 'CARTA_TABS', carta.tabsHtml);
       html = replaceBetween(html, 'CARTA_PANELS', carta.panelsHtml);
     }
-    html = replaceBetween(html, 'CARTA_JSONLD', buildMenuJsonLd(cartaRows, isEN, file));
+    html = replaceBetween(html, 'CARTA_JSONLD', buildMenuJsonLd(filas, isEN, file, uk));
 
     if (html !== original) {
       writeFileSync(path, html, 'utf8');

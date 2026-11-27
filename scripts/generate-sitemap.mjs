@@ -11,7 +11,7 @@ const SITE = JSON.parse(readFileSync(join(ROOT, 'scripts', 'site-config.json'), 
 // [español, inglés, prioridad, frecuencia]
 const PAGINAS = [
   ['index.html', 'en.html', '1.0', 'weekly'],
-  ['carta.html', 'en-carta.html', '0.9', 'daily'],
+  ['carta.html', 'en-carta.html', '0.9', 'daily', 'uk-carta.html'],
   ['reservas.html', 'en-reservas.html', '0.8', 'monthly'],
   ['eventos.html', 'en-eventos.html', '0.8', 'daily'],
   ['visitanos.html', 'en-visitanos.html', '0.7', 'monthly'],
@@ -23,16 +23,17 @@ const PAGINAS = [
 ];
 
 const url = (f) => `${SITE}/${f === 'index.html' ? '' : f}`;
-const entrada = (f, es, en, prio, freq) => `  <url>
+const entrada = (f, es, en, prio, freq, uk) => `  <url>
     <loc>${url(f)}</loc>
     <xhtml:link rel="alternate" hreflang="es" href="${url(es)}" />
-    <xhtml:link rel="alternate" hreflang="en" href="${url(en)}" />
+    <xhtml:link rel="alternate" hreflang="en" href="${url(en)}" />${uk ? `
+    <xhtml:link rel="alternate" hreflang="uk" href="${url(uk)}" />` : ''}
     <xhtml:link rel="alternate" hreflang="x-default" href="${url(es)}" />
     <changefreq>${freq}</changefreq>
     <priority>${prio}</priority>
   </url>`;
 
-const urls = PAGINAS.flatMap(([es, en, prio, freq]) => [entrada(es, es, en, prio, freq), entrada(en, es, en, prio, freq)]);
+const urls = PAGINAS.flatMap(([es, en, prio, freq, uk]) => [entrada(es, es, en, prio, freq, uk), entrada(en, es, en, prio, freq, uk), ...(uk ? [entrada(uk, es, en, prio, freq, uk)] : [])]);
 writeFileSync(join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${urls.join('\n')}

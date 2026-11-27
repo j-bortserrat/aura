@@ -1,0 +1,664 @@
+{
+ "categorias": {
+  "Menús": {
+   "nombre": "Меню",
+   "nota": "Доступні до 16:00; меню Dulce та Salado — для полуденку. Додатки до полуденку: молоко без лактози / мигдалеве / кокосове / вівсяне +0,30 € · сиропи ванільний або карамельний +1,00 €."
+  },
+  "Desayuno": {
+   "nombre": "Сніданок",
+   "nota": "Кухня працює щодня до 16:00. Тости на цільнозерновому хлібі з місцевої пекарні, на заквасці, ферментація 24 год. Безглютеновий хліб +1,00 €."
+  },
+  "Almuerzo": {
+   "nombre": "Бранч",
+   "nota": "Кухня працює щодня до 16:00. Яйця з цільнозерновим хлібом у комплекті. Додатки: малосольний лосось (100 г) +6,90 € · тунець +2,90 € · сир фета +2,50 € · авокадо +2,50 € · хамон серрано +2,90 € · бекон +2,00 € · хлібний кошик 1,90 € · безглютеновий хлібний кошик 2,90 €."
+  },
+  "Aperitivos": {
+   "nombre": "Закуски",
+   "nota": "Емпанади як закуска — усі по 3,90 €."
+  },
+  "Comida": {
+   "nombre": "Обід",
+   "nota": "Кухня працює щодня до 16:00. Хліб на вибір: хлібний кошик 1,90 € · безглютеновий хлібний кошик 2,90 €."
+  },
+  "Meriendas": {
+   "nombre": "Полуденок",
+   "nota": "Додатки до випічки на вибір: шинка та сир 1,90 € · дульсе де лече 1,50 € · фісташка 1,90 € · шоколадний ганаш 1,90 € · Nutella 1,50 €. Продукти без глютену не підходять людям із целіакією."
+  },
+  "Bebidas calientes": {
+   "nombre": "Гарячі напої",
+   "nota": "Наші еспресо готуються з дози 18–20 г із щоденно відкоригованою екстракцією, щоб чашка була збалансованою та ароматною. Зроби напій холодним +0,50 € · альтернативне молоко (без лактози, мигдальне, кокосове, вівсяне) +0,30 € · сиропи ванільний або карамельний +1,00 € · додатковий шот +1,00 €."
+  },
+  "Bebidas frías": {
+   "nombre": "Холодні напої",
+   "nota": "Додатки: ванільний сироп +1,00 € · карамельний сироп +1,00 € · додатковий шот +1,00 €. Смузі на водяній основі; змінюй основу: апельсиновий сік +1,20 € · молоко або рослинні напої (без лактози, мигдальні, кокосові, вівсяні) +0,80 €."
+  },
+  "Bebidas": {
+   "nombre": "Напої",
+   "nota": ""
+  }
+ },
+ "subcategorias": {
+  "Tostas": "Тости",
+  "Tostas francesas (pan brioche)": "Французькі тости (бріоші)",
+  "Pancakes": "Панкейки",
+  "Bowls": "Боули",
+  "Huevos": "Яйця",
+  "Sandwiches · Pan Brioche": "Сендвічі · бріоші",
+  "Sandwiches · Pan Bagel": "Сендвічі · бейгл",
+  "Veggies y veganas": "Вегетаріанські та веганські",
+  "Proteínas": "Протеїни",
+  "Platos": "Страви",
+  "Ensaladas": "Салати",
+  "Cakes": "Торти",
+  "Cookies": "Печиво",
+  "Alfajores": "Альфахорес",
+  "Pastelería": "Випічка",
+  "Espressos": "Еспресо",
+  "Filtros": "Фільтр-кава",
+  "Matchas": "Матча",
+  "Infusiones y té · recarga ilimitada": "Настої та чай · безлімітне доливання",
+  "… y otros": "… та інше",
+  "Espressos y lattes fríos": "Холодні еспресо та лате",
+  "Smoothies": "Смузі",
+  "Zumos y refrescos": "Соки та прохолодні напої",
+  "Vinos & aperitivos": "Вина та аперитиви"
+ },
+ "platos": {
+  "Menús||Menú Proteico": {
+   "nombre": "Протеїнове меню",
+   "descripcion": "Супер-протеїнові яйця (яєчня-бовтанка, малосольний лосось і авокадо, з гарбузовим і соняшниковим насінням) + напій (апельсиновий сік (M) або вода Font Vella 33 cl / Aperol Spritz +5,90 € / комбуча +4,00 €) + кава з молоком (M) або лате + десерт на вибір: печиво або бісквіт. Акція: 2 за 37,90 €."
+  },
+  "Menús||Menú Start": {
+   "nombre": "Меню Start",
+   "descripcion": "Тост на вибір (веганський або зі шпинатом) + напій (апельсиновий сік (M) або вода Font Vella 33 cl / Aperol Spritz +5,90 € / комбуча +4,00 €) + кава з молоком (M) або лате. Акція: 2 за 24,50 €."
+  },
+  "Menús||Menú Comida": {
+   "nombre": "Обідове меню",
+   "descripcion": "Аргентинська емпанада на вибір + страва на вибір (Patagonia Grill або Bali) + десерт (торт, бісквіт або печиво на вибір) + напій (келих білого вина Chardonnay або червоного Malbec) + еспресо. Акція: 2 за 47,90 €."
+  },
+  "Menús||Menú Dulce": {
+   "nombre": "Солодке меню",
+   "descripcion": "Вологий шоколадний торт і спешелті-кава: ритуал полудня. 1 капучино або лате + 1 шматок торта на вибір (вологий шоколадний або сирний з червоними ягодами). Акція: 2 за 14,90 €."
+  },
+  "Menús||Menú Salado": {
+   "nombre": "Солоне меню",
+   "descripcion": "Бейгл (Valen або Serrano) + кава з молоком (M) або лате. Акція: 2 за 21,90 €."
+  },
+  "Desayuno|Tostas|Salmón curado y aguacate": {
+   "nombre": "Малосольний лосось з авокадо",
+   "descripcion": "Лосось власного посолу, скибочки зеленого яблука, авокадо та домашній соус тартар."
+  },
+  "Desayuno|Tostas|Burrata": {
+   "nombre": "Burrata",
+   "descripcion": "Італійська буррата, свіже домашнє песто, рукола, черрі, обсмажені з часником, вершкове масло та бальзамічний оцет."
+  },
+  "Desayuno|Tostas|Huevos revueltos": {
+   "nombre": "Яєчня-бовтанка",
+   "descripcion": "Яєчня-бовтанка, авокадо, гарбузове та соняшникове насіння."
+  },
+  "Desayuno|Tostas|Valen": {
+   "nombre": "Valen",
+   "descripcion": "Хумус з нуту, авокадо, в'ялені томати та паприка."
+  },
+  "Desayuno|Tostas|Espinacas": {
+   "nombre": "Шпинат",
+   "descripcion": "Обсмажений шпинат, смажені яйця, сир фета та олія з чилі."
+  },
+  "Desayuno|Tostas|Jamón serrano": {
+   "nombre": "Хамон серрано",
+   "descripcion": "Хамон серрано, тертий томат та оливкова олія екстра верджин Verde Esmeralda."
+  },
+  "Desayuno|Tostas|Banana & mantequilla de cacahuetes": {
+   "nombre": "Банан і арахісова паста",
+   "descripcion": "Арахісова паста, банан та сироп агави."
+  },
+  "Desayuno|Tostas|Tomate & AOVE": {
+   "nombre": "Томат і оливкова олія",
+   "descripcion": "Тертий томат, оливкова олія екстра верджин Verde Esmeralda."
+  },
+  "Desayuno|Tostas francesas (pan brioche)|Proteica": {
+   "nombre": "Протеїнова",
+   "descripcion": "Яєчня-бовтанка, бекон і сироп на тості з бріоші, карамелізованому з корицею."
+  },
+  "Desayuno|Tostas francesas (pan brioche)|Con frutas": {
+   "nombre": "З фруктами",
+   "descripcion": "Сезонні фрукти та кленовий сироп на тості з бріоші, карамелізованому з корицею."
+  },
+  "Desayuno|Pancakes|Huevos revueltos": {
+   "nombre": "Яєчня-бовтанка",
+   "descripcion": "Яєчня-бовтанка, бекон і кленовий сироп."
+  },
+  "Desayuno|Pancakes|Frutas y sirope": {
+   "nombre": "Фрукти та сироп",
+   "descripcion": "Сезонні фрукти та кленовий сироп."
+  },
+  "Desayuno|Pancakes|Banana & cacahuetes": {
+   "nombre": "Банан і арахіс",
+   "descripcion": "Банан, арахісова паста та кленовий сироп."
+  },
+  "Desayuno|Pancakes|Nutella / DDL / Pistacho": {
+   "nombre": "Nutella / DDL / Фісташка",
+   "descripcion": "Nutella (9,10) / DDL (8,9) / Фісташка (8,9,10)."
+  },
+  "Desayuno|Bowls|Açaí": {
+   "nombre": "Açaí",
+   "descripcion": "Органічне асаї без доданого цукру, приготоване при вас. З бананом, червоними ягодами, домашньою гранолою та паçокою, шоколадними чипсами й арахісовою пастою. Додатково: веганський протеїн +2,50 €."
+  },
+  "Desayuno|Bowls|Chía pudding": {
+   "nombre": "Чіа-пудинг",
+   "descripcion": "Насіння чіа з червоними ягодами, веганський кокосовий йогурт, кокосова стружка та крафтовий полуничний джем."
+  },
+  "Desayuno|Bowls|Porridge": {
+   "nombre": "Каша (porridge)",
+   "descripcion": "Цільнозернові вівсянка без глютену, кориця, вівсяне молоко, банан, червоні ягоди та сироп агави. Додатково: веганський протеїн +2,50 €."
+  },
+  "Desayuno|Bowls|Yogur griego": {
+   "nombre": "Грецький йогурт",
+   "descripcion": "Грецький йогурт, сезонні фрукти, домашня гранола, сироп агави. Додатково: веганський йогурт +1,00 €."
+  },
+  "Desayuno|Bowls|Frutas frescas": {
+   "nombre": "Свіжі фрукти",
+   "descripcion": "Салат зі свіжих сезонних фруктів."
+  },
+  "Almuerzo|Huevos|Super Proteico": {
+   "nombre": "Супер-протеїнові",
+   "descripcion": "Два яйця-бовтанки, малосольний лосось і авокадо."
+  },
+  "Almuerzo|Huevos|Huevos Calpe": {
+   "nombre": "Яйця Calpe",
+   "descripcion": "Два смажені яйця, обсмажений шпинат, авокадо та хрусткий бекон."
+  },
+  "Almuerzo|Huevos|Huevos a la Española": {
+   "nombre": "Яйця по-іспанськи",
+   "descripcion": "Два смажені яйця з хамоном серрано. Цільнозерновий хліб у комплекті."
+  },
+  "Almuerzo|Huevos|Omelette": {
+   "nombre": "Омлет",
+   "descripcion": "Надзвичайно соковитий французький омлет зі свіжим шпинатом, обсмаженими печерицями та запеченим сиром чеддер. Цільнозерновий хліб у комплекті."
+  },
+  "Almuerzo|Huevos|Shakshuka": {
+   "nombre": "Шакшука",
+   "descripcion": "Два яйця-пашот у пряному томатному соусі з цибулею. Цільнозерновий хліб у комплекті."
+  },
+  "Almuerzo|Huevos|Huevos Turcos": {
+   "nombre": "Турецькі яйця",
+   "descripcion": "Два яйця-пашот на кремовому грецькому йогурті, з олією кайєнського перцю та часником. Цільнозерновий хліб у комплекті."
+  },
+  "Almuerzo|Sandwiches · Pan Brioche|Roast Beef": {
+   "nombre": "Ростбіф",
+   "descripcion": "Ростбіф, смажене яйце, сир чеддер, маринована червона цибуля, рукола та соус із хрону."
+  },
+  "Almuerzo|Sandwiches · Pan Brioche|Pulled Pork": {
+   "nombre": "Pulled Pork",
+   "descripcion": "Рвана свинина з соусом барбекю, смажене яйце, сир чеддер і карамелізована цибуля."
+  },
+  "Almuerzo|Sandwiches · Pan Brioche|Pollo Teriyaki": {
+   "nombre": "Курка теріякі",
+   "descripcion": "Рвана курка з соусом теріякі, сир чеддер, карамелізована цибуля, рукола та смажене яйце."
+  },
+  "Almuerzo|Sandwiches · Pan Brioche|Veggie Aura": {
+   "nombre": "Veggie Aura",
+   "descripcion": "Смажене яйце, сир едам, обсмажені черрі, рукола, маринована цибуля та домашній соус тартар."
+  },
+  "Almuerzo|Sandwiches · Pan Bagel|Caprese": {
+   "nombre": "Капрезе",
+   "descripcion": "Кремова буррата, свіже домашнє песто, рукола, черрі, обсмажені з часником, вершкове масло та бальзамічний оцет."
+  },
+  "Almuerzo|Sandwiches · Pan Bagel|Salmón y Aguacate": {
+   "nombre": "Лосось і авокадо",
+   "descripcion": "Малосольний лосось, скибочки авокадо та домашній соус тартар."
+  },
+  "Almuerzo|Sandwiches · Pan Bagel|Huevos & Bacon": {
+   "nombre": "Яйця та бекон",
+   "descripcion": "Яєчня-бовтанка, хрусткий бекон, сир едам і тертий томат."
+  },
+  "Almuerzo|Sandwiches · Pan Bagel|Valen": {
+   "nombre": "Valen",
+   "descripcion": "Хумус з нуту, авокадо, в'ялені томати та паприка."
+  },
+  "Almuerzo|Sandwiches · Pan Bagel|Serrano": {
+   "nombre": "Serrano",
+   "descripcion": "Хамон серрано преміум, тертий томат, рукола та оливкова олія екстра верджин."
+  },
+  "Aperitivos|Veggies y veganas|Vegana": {
+   "nombre": "Веганська",
+   "descripcion": "Тофу, перець, цибуля та оливки."
+  },
+  "Aperitivos|Veggies y veganas|Queso de cabra y nuez": {
+   "nombre": "Козиний сир і горіх",
+   "descripcion": "Сир моцарела, козиний сир і волоський горіх."
+  },
+  "Aperitivos|Veggies y veganas|Espinaca y queso": {
+   "nombre": "Шпинат і сир",
+   "descripcion": "Свіжий шпинат, мангольд, цибуля, перець і соус бешамель."
+  },
+  "Aperitivos|Veggies y veganas|Caprese": {
+   "nombre": "Капрезе",
+   "descripcion": "Сир моцарела та едам, свіжий томат і базилік."
+  },
+  "Aperitivos|Veggies y veganas|Humita": {
+   "nombre": "Humita",
+   "descripcion": "Солодка кукурудза, цибуля, червоний перець і бешамель."
+  },
+  "Aperitivos|Veggies y veganas|Cebolla y queso": {
+   "nombre": "Цибуля і сир",
+   "descripcion": "Сир моцарела, цибуля та орегано."
+  },
+  "Aperitivos|Proteínas|Atún": {
+   "nombre": "Тунець",
+   "descripcion": "Тунець, цибуля, оливки та яйця."
+  },
+  "Aperitivos|Proteínas|Ribs barbacoa": {
+   "nombre": "Ребра барбекю",
+   "descripcion": "Рвана свинина, барбекю та цибуля."
+  },
+  "Aperitivos|Proteínas|Pollo": {
+   "nombre": "Курка",
+   "descripcion": "Рвана куряча грудка, цибуля, червоний перець і орегано."
+  },
+  "Aperitivos|Proteínas|Ternera cortada a cuchillo": {
+   "nombre": "Яловичина, нарізана ножем",
+   "descripcion": "Аргентинська яловичина, цибуля, червоний перець, оливки та яйце."
+  },
+  "Aperitivos|Proteínas|Ternera asada y provolone": {
+   "nombre": "Запечена яловичина з проволоне",
+   "descripcion": "Запечена аргентинська яловичина, сир проволоне, сир емменталь і цибуля."
+  },
+  "Aperitivos|Proteínas|Jamón york y queso": {
+   "nombre": "Шинка та сир",
+   "descripcion": "Сир моцарела, варена шинка, сіль."
+  },
+  "Comida|Platos|Patagonia Grill": {
+   "nombre": "Patagonia Grill",
+   "descripcion": "Тонко нарізаний ростбіф із двома смаженими яйцями, салат із кіноа, квасоля з піко-де-гальо та авокадо."
+  },
+  "Comida|Platos|Full English": {
+   "nombre": "Full English",
+   "descripcion": "Два смажені яйця, ковбаска, бекон, квасоля в томатному соусі, печериці, запечений томат."
+  },
+  "Comida|Platos|California Benedict": {
+   "nombre": "California Benedict",
+   "descripcion": "Яйця бенедикт на підсмаженому бріоші, загорнуті в малосольний лосось власного посолу, зі шпинатом і сезонними овочами."
+  },
+  "Comida|Platos|Tulum Rancheros": {
+   "nombre": "Tulum Rancheros",
+   "descripcion": "Гострі яйця ранчерос, pulled pork, чорна квасоля, піко-де-гальо та тортильї."
+  },
+  "Comida|Platos|Bali": {
+   "nombre": "Bali",
+   "descripcion": "Тост із хумусом, скибочками авокадо та в'яленими томатами, з пряним тофу, обсмаженим шпинатом і сезонними овочами."
+  },
+  "Comida|Ensaladas|Power": {
+   "nombre": "Power",
+   "descripcion": "Ростбіф, смажене яйце, кіноа, рукола, черрі та маринована цибуля. Заправка: соус із хрону (майонез, хрін і табаско)."
+  },
+  "Comida|Ensaladas|Valenciana": {
+   "nombre": "Valenciana",
+   "descripcion": "Тунець, зелений мікс, морква, маринована цибуля, яйце-пашот, черрі та сир фета. Заправка: гірчиця, оливкова олія та нефільтрований яблучний оцет."
+  },
+  "Comida|Ensaladas|Energética": {
+   "nombre": "Energética",
+   "descripcion": "Малосольний лосось, мікс-салат, авокадо, помідори черрі та смажене яйце. Заправка: соус тартар (майонез, гірчиця, корнішони, цибуля, каперси)."
+  },
+  "Comida|Ensaladas|Proteica": {
+   "nombre": "Протеїнова",
+   "descripcion": "Тофу, обсмажений зі спеціями, кіноа, рукола, черрі та спаржа, хумус з нуту, олія та лимон."
+  },
+  "Meriendas|Cakes|Tarta de queso y frutos rojos": {
+   "nombre": "Сирний торт із червоними ягодами",
+   "descripcion": ""
+  },
+  "Meriendas|Cakes|Tarta húmeda de chocolate": {
+   "nombre": "Вологий шоколадний торт",
+   "descripcion": "Вологий шоколадний торт на каві, з начинкою з дульсе де лече."
+  },
+  "Meriendas|Cakes|Carrot cake": {
+   "nombre": "Морквяний торт (Carrot cake)",
+   "descripcion": ""
+  },
+  "Meriendas|Cakes|Banana bread": {
+   "nombre": "Банановий хліб (Banana bread)",
+   "descripcion": ""
+  },
+  "Meriendas|Cakes|Bizcocho de arándanos & yogur": {
+   "nombre": "Бісквіт із чорницею та йогуртом",
+   "descripcion": ""
+  },
+  "Meriendas|Cakes|Brownie con nuez": {
+   "nombre": "Брауні з горіхами",
+   "descripcion": ""
+  },
+  "Meriendas|Cakes|Tartaleta de limón y merengue italiano": {
+   "nombre": "Тарталетка з лимоном та італійською меренгою",
+   "descripcion": ""
+  },
+  "Meriendas|Cakes|Sablé de manzana": {
+   "nombre": "Сабле з яблуком",
+   "descripcion": ""
+  },
+  "Meriendas|Cakes|Éclair de chocolate o café": {
+   "nombre": "Еклер шоколадний або кавовий",
+   "descripcion": ""
+  },
+  "Meriendas|Cookies|Doble chocolate belga 70% y trigo sarraceno": {
+   "nombre": "Подвійний бельгійський шоколад 70% і гречка",
+   "descripcion": "115 г"
+  },
+  "Meriendas|Cookies|Pistacho rellena": {
+   "nombre": "З фісташковою начинкою",
+   "descripcion": "150 г"
+  },
+  "Meriendas|Cookies|Red velvet y chocolate blanco belga": {
+   "nombre": "Red velvet і білий бельгійський шоколад",
+   "descripcion": "115 г"
+  },
+  "Meriendas|Cookies|Avena & chocolate": {
+   "nombre": "Вівсянка та шоколад",
+   "descripcion": "115 г · без глютену"
+  },
+  "Meriendas|Cookies|Chispas de chocolate": {
+   "nombre": "З шоколадною крихтою",
+   "descripcion": "115 г"
+  },
+  "Meriendas|Alfajores|Maicena": {
+   "nombre": "Альфахорес «Майзена»",
+   "descripcion": "Кукурудзяне борошно, кокос, дульсе де лече."
+  },
+  "Meriendas|Alfajores|Coco y dulce de leche": {
+   "nombre": "Кокос і дульсе де лече",
+   "descripcion": "Кокосове печиво з начинкою з дульсе де лече."
+  },
+  "Meriendas|Alfajores|Almendras": {
+   "nombre": "Мигдаль",
+   "descripcion": "Печиво з мигдалевого борошна, мигдаль, DDL."
+  },
+  "Meriendas|Alfajores|Chocolate blanco o chocolate negro": {
+   "nombre": "Білий або чорний шоколад",
+   "descripcion": "Ванільне / какао печиво з начинкою DDL, у білому або чорному шоколаді."
+  },
+  "Meriendas|Pastelería|Rollo de canela casero": {
+   "nombre": "Домашній рулет із корицею",
+   "descripcion": ""
+  },
+  "Meriendas|Pastelería|Rollo de cardamomo casero": {
+   "nombre": "Домашній рулет із кардамоном",
+   "descripcion": ""
+  },
+  "Meriendas|Pastelería|Medialunas argentinas": {
+   "nombre": "Аргентинські медіалунас",
+   "descripcion": ""
+  },
+  "Meriendas|Pastelería|Croissant de mantequilla": {
+   "nombre": "Круасан із вершковим маслом",
+   "descripcion": ""
+  },
+  "Bebidas calientes|Espressos|Espresso": {
+   "nombre": "Espresso",
+   "descripcion": ""
+  },
+  "Bebidas calientes|Espressos|Americano": {
+   "nombre": "Americano",
+   "descripcion": ""
+  },
+  "Bebidas calientes|Espressos|Latte": {
+   "nombre": "Latte",
+   "descripcion": ""
+  },
+  "Bebidas calientes|Espressos|Cortado": {
+   "nombre": "Cortado",
+   "descripcion": ""
+  },
+  "Bebidas calientes|Espressos|Flat White": {
+   "nombre": "Flat White",
+   "descripcion": ""
+  },
+  "Bebidas calientes|Espressos|Café con leche": {
+   "nombre": "Кава з молоком",
+   "descripcion": ""
+  },
+  "Bebidas calientes|Espressos|Cappuccino": {
+   "nombre": "Cappuccino",
+   "descripcion": ""
+  },
+  "Bebidas calientes|Espressos|Mocaccino": {
+   "nombre": "Mocaccino",
+   "descripcion": ""
+  },
+  "Bebidas calientes|Espressos|Vainilla o Caramel Latte": {
+   "nombre": "Vanilla або Caramel Latte",
+   "descripcion": ""
+  },
+  "Bebidas calientes|Filtros|Batch Brew": {
+   "nombre": "Batch Brew",
+   "descripcion": ""
+  },
+  "Bebidas calientes|Filtros|V60": {
+   "nombre": "V60",
+   "descripcion": "200 мл"
+  },
+  "Bebidas calientes|Filtros|Aeropress": {
+   "nombre": "Aeropress",
+   "descripcion": "200 мл"
+  },
+  "Bebidas calientes|Filtros|Prensa francesa": {
+   "nombre": "Френч-прес",
+   "descripcion": "200 мл"
+  },
+  "Bebidas calientes|Matchas|Matcha Latte": {
+   "nombre": "Matcha Latte",
+   "descripcion": ""
+  },
+  "Bebidas calientes|Matchas|Matcha Chocolate": {
+   "nombre": "Matcha Chocolate",
+   "descripcion": ""
+  },
+  "Bebidas calientes|Matchas|Matcha Vainilla Latte": {
+   "nombre": "Matcha Vanilla Latte",
+   "descripcion": ""
+  },
+  "Bebidas calientes|Matchas|Matcha Caramel Latte": {
+   "nombre": "Matcha Caramel Latte",
+   "descripcion": ""
+  },
+  "Bebidas calientes|Infusiones y té · recarga ilimitada|Infusiones": {
+   "nombre": "Настої",
+   "descripcion": "Імбир і лимон, солодка ромашка, м'ята"
+  },
+  "Bebidas calientes|Infusiones y té · recarga ilimitada|Rooibos": {
+   "nombre": "Ройбуш",
+   "descripcion": "Чай масала, яблуко з корицею, червоні ягоди"
+  },
+  "Bebidas calientes|Infusiones y té · recarga ilimitada|Mate cocido": {
+   "nombre": "Мате кошідо",
+   "descripcion": ""
+  },
+  "Bebidas calientes|Infusiones y té · recarga ilimitada|English Breakfast": {
+   "nombre": "English Breakfast",
+   "descripcion": ""
+  },
+  "Bebidas calientes|Infusiones y té · recarga ilimitada|Té rojo": {
+   "nombre": "Червоний чай",
+   "descripcion": ""
+  },
+  "Bebidas calientes|Infusiones y té · recarga ilimitada|Té verde": {
+   "nombre": "Зелений чай",
+   "descripcion": "Sencha, бурбонська ваніль, чай"
+  },
+  "Bebidas calientes|… y otros|Ube Latte": {
+   "nombre": "Ube Latte",
+   "descripcion": ""
+  },
+  "Bebidas calientes|… y otros|Mate Latte": {
+   "nombre": "Mate Latte",
+   "descripcion": ""
+  },
+  "Bebidas calientes|… y otros|Pink Latte": {
+   "nombre": "Pink Latte",
+   "descripcion": ""
+  },
+  "Bebidas calientes|… y otros|Cúrcuma Latte": {
+   "nombre": "Curcuma Latte (куркума)",
+   "descripcion": ""
+  },
+  "Bebidas calientes|… y otros|Spirulina": {
+   "nombre": "Spirulina",
+   "descripcion": ""
+  },
+  "Bebidas calientes|… y otros|Spicy Chai Latte": {
+   "nombre": "Spicy Chai Latte",
+   "descripcion": ""
+  },
+  "Bebidas calientes|… y otros|Spicy Cacao Chai Latte": {
+   "nombre": "Spicy Cacao Chai Latte",
+   "descripcion": ""
+  },
+  "Bebidas calientes|… y otros|Dirty Chai Latte": {
+   "nombre": "Dirty Chai Latte",
+   "descripcion": ""
+  },
+  "Bebidas calientes|… y otros|Hot Chocolate 45%": {
+   "nombre": "Гарячий шоколад 45%",
+   "descripcion": ""
+  },
+  "Bebidas calientes|… y otros|Hot Chocolate 70%": {
+   "nombre": "Гарячий шоколад 70%",
+   "descripcion": ""
+  },
+  "Bebidas frías|Espressos y lattes fríos|Espresso Orange": {
+   "nombre": "Espresso Orange",
+   "descripcion": ""
+  },
+  "Bebidas frías|Espressos y lattes fríos|Espresso Tonic Fever-Tree": {
+   "nombre": "Espresso Tonic Fever-Tree",
+   "descripcion": ""
+  },
+  "Bebidas frías|Espressos y lattes fríos|Cold Brew": {
+   "nombre": "Cold Brew",
+   "descripcion": ""
+  },
+  "Bebidas frías|Espressos y lattes fríos|Affogato": {
+   "nombre": "Affogato",
+   "descripcion": ""
+  },
+  "Bebidas frías|Espressos y lattes fríos|Espresso Limonada": {
+   "nombre": "Espresso Limonada",
+   "descripcion": ""
+  },
+  "Bebidas frías|Espressos y lattes fríos|Frappuccino": {
+   "nombre": "Frappuccino",
+   "descripcion": ""
+  },
+  "Bebidas frías|Espressos y lattes fríos|Pink Latte": {
+   "nombre": "Pink Latte",
+   "descripcion": ""
+  },
+  "Bebidas frías|Espressos y lattes fríos|Matcha Orange": {
+   "nombre": "Matcha Orange",
+   "descripcion": ""
+  },
+  "Bebidas frías|Espressos y lattes fríos|Iced Matcha Latte": {
+   "nombre": "Iced Matcha Latte",
+   "descripcion": ""
+  },
+  "Bebidas frías|Espressos y lattes fríos|Iced Latte": {
+   "nombre": "Iced Latte",
+   "descripcion": ""
+  },
+  "Bebidas frías|Espressos y lattes fríos|Iced Caramel": {
+   "nombre": "Iced Caramel",
+   "descripcion": ""
+  },
+  "Bebidas frías|Espressos y lattes fríos|Iced Vainilla": {
+   "nombre": "Iced Vanilla",
+   "descripcion": ""
+  },
+  "Bebidas frías|Espressos y lattes fríos|Iced Ube Latte": {
+   "nombre": "Iced Ube Latte",
+   "descripcion": ""
+  },
+  "Bebidas frías|Smoothies|Blue Protein": {
+   "nombre": "Blue Protein",
+   "descripcion": "Банан, полуниця, спіруліна та веганський протеїн."
+  },
+  "Bebidas frías|Smoothies|Colada Jungle": {
+   "nombre": "Colada Jungle",
+   "descripcion": "Банан, ананас і кокос."
+  },
+  "Bebidas frías|Smoothies|Detox": {
+   "nombre": "Detox",
+   "descripcion": "Ананас, шпинат, огірок і кейл."
+  },
+  "Bebidas frías|Smoothies|Vitality": {
+   "nombre": "Vitality",
+   "descripcion": "Банан і полуниця."
+  },
+  "Bebidas frías|Smoothies|Squeeze Nature": {
+   "nombre": "Squeeze Nature",
+   "descripcion": "Натуральний апельсиновий сік, буряк, морква та імбир."
+  },
+  "Bebidas frías|Smoothies|Delightful": {
+   "nombre": "Delightful",
+   "descripcion": "Асаї, манго, банан і чорниця."
+  },
+  "Bebidas frías|Smoothies|Berries Paradise": {
+   "nombre": "Berries Paradise",
+   "descripcion": "Полуниця, чорниця, вишня та манго."
+  },
+  "Bebidas|Zumos y refrescos|Zumo de naranja natural": {
+   "nombre": "Натуральний апельсиновий сік",
+   "descripcion": ""
+  },
+  "Bebidas|Zumos y refrescos|Zumo limonada casera": {
+   "nombre": "Домашній лимонад",
+   "descripcion": ""
+  },
+  "Bebidas|Zumos y refrescos|Agua sin gas Font Vella": {
+   "nombre": "Вода без газу Font Vella",
+   "descripcion": ""
+  },
+  "Bebidas|Zumos y refrescos|Agua con gas Font Vella": {
+   "nombre": "Вода з газом Font Vella",
+   "descripcion": ""
+  },
+  "Bebidas|Zumos y refrescos|Refresco cola": {
+   "nombre": "Кола",
+   "descripcion": ""
+  },
+  "Bebidas|Zumos y refrescos|Tónica Fever-Tree": {
+   "nombre": "Тонік Fever-Tree",
+   "descripcion": ""
+  },
+  "Bebidas|Zumos y refrescos|Kombucha (Ginger o Berries)": {
+   "nombre": "Комбуча (Ginger або Berries)",
+   "descripcion": ""
+  },
+  "Bebidas|Vinos & aperitivos|Cerveza 1/3 especial": {
+   "nombre": "Пиво 1/3 special",
+   "descripcion": ""
+  },
+  "Bebidas|Vinos & aperitivos|Copa de vino Chardonnay": {
+   "nombre": "Келих вина Chardonnay",
+   "descripcion": ""
+  },
+  "Bebidas|Vinos & aperitivos|Copa de vino Malbec": {
+   "nombre": "Келих вина Malbec",
+   "descripcion": ""
+  },
+  "Bebidas|Vinos & aperitivos|Vermut rojo o blanco": {
+   "nombre": "Ігристе Cava Codorníu 200 мл",
+   "descripcion": ""
+  },
+  "Bebidas|Vinos & aperitivos|Cava Codorníu 200 ml": {
+   "nombre": "Кава Codorníu 200 мл",
+   "descripcion": ""
+  },
+  "Bebidas|Vinos & aperitivos|Mimosa": {
+   "nombre": "Мімоза",
+   "descripcion": "Ігристе (cava) й апельсиновий сік"
+  },
+  "Bebidas|Vinos & aperitivos|Aperol Spritz": {
+   "nombre": "Aperol Spritz",
+   "descripcion": ""
+  }
+ }
+}

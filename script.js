@@ -7,6 +7,8 @@ const OPEN_MIN = 9 * 60;
 const closeMinDe = (fecha) => ([0, 6].includes(fecha.getDay()) ? 18 : 19) * 60;
 
 const isEN = document.documentElement.lang === 'en';
+const isUK = document.documentElement.lang === 'uk';
+const L3 = (es, en, uk) => (isUK ? uk : isEN ? en : es); // textos de interfaz en los tres idiomas
 
 function updateOpenStatus() {
   const now = new Date();
@@ -16,12 +18,12 @@ function updateOpenStatus() {
   const isOpen = mins >= OPEN_MIN && mins < CLOSE_MIN;
 
   const state = isOpen ? 'is-open' : 'is-closed';
-  const label = isOpen ? (isEN ? 'Open' : 'Abierto') : (isEN ? 'Closed' : 'Cerrado');
+  const label = isOpen ? L3('Abierto', 'Open', 'Відчинено') : L3('Cerrado', 'Closed', 'Зачинено');
   const detail = isOpen
-    ? (isEN ? `Closes at ${cierreTxt}` : `Cierra a las ${cierreTxt}`)
+    ? L3(`Cierra a las ${cierreTxt}`, `Closes at ${cierreTxt}`, `Зачиняємось о ${cierreTxt}`)
     : (mins < OPEN_MIN
-        ? (isEN ? 'Opens today at 9:00' : 'Abre hoy a las 9:00')
-        : (isEN ? 'Opens tomorrow at 9:00' : 'Abre mañana a las 9:00'));
+        ? L3('Abre hoy a las 9:00', 'Opens today at 9:00', 'Сьогодні відчиняємось о 9:00')
+        : L3('Abre mañana a las 9:00', 'Opens tomorrow at 9:00', 'Завтра відчиняємось о 9:00'));
 
   // Botón flotante de horario
   const statusFloat = document.getElementById('statusFloat');
@@ -113,7 +115,7 @@ function aplicarFiltrosCarta() {
       if (!vacio) {
         vacio = document.createElement('p');
         vacio.className = 'menu__empty';
-        vacio.textContent = isEN ? 'No dishes match these filters yet.' : 'De momento no hay platos con estos filtros.';
+        vacio.textContent = L3('De momento no hay platos con estos filtros.', 'No dishes match these filters yet.', 'Поки немає страв за цими фільтрами.');
         panel.appendChild(vacio);
       }
       vacio.hidden = false;
@@ -160,10 +162,10 @@ function fichaListaNavegable() {
 }
 
 function fichaDietaTags(item) {
-  const dietas = { veg: ['Vegetariano', 'Vegetarian'], vegan: ['Vegano', 'Vegan'], keto: ['Keto', 'Keto'], gf: ['Sin gluten', 'Gluten-free'], lac: ['Sin lactosa', 'Lactose-free'] };
+  const dietas = { veg: ['Vegetariano', 'Vegetarian', 'Вегетаріанське'], vegan: ['Vegano', 'Vegan', 'Веганське'], keto: ['Keto', 'Keto', 'Кето'], gf: ['Sin gluten', 'Gluten-free', 'Без глютену'], lac: ['Sin lactosa', 'Lactose-free', 'Без лактози'] };
   const esBebida = ['bebidas-calientes', 'bebidas-frias', 'bebidas'].includes(item.closest('.menu__panel')?.dataset.panel);
   if (esBebida) return [];
-  return Object.entries(dietas).filter(([k]) => item.dataset[k] === '1').map(([k, l]) => [k, l[isEN ? 1 : 0]]);
+  return Object.entries(dietas).filter(([k]) => item.dataset[k] === '1').map(([k, l]) => [k, L3(l[0], l[1], l[2])]);
 }
 
 // ---- Móvil: carrusel con un trozo de la ficha anterior y la siguiente a los lados ----
@@ -176,7 +178,7 @@ function crearSlide(item, centro) {
   const descEl = item.querySelector('p');
   const slide = document.createElement('div');
   slide.className = 'ficha__slide' + (centro ? ' ficha__slide--c' : '');
-  slide.innerHTML = `<div class="ficha__card"><div class="ficha__foto"><img class="ficha__img" alt="" /><img class="ficha__ph" src="assets/brand/logo-circular-transparent.png" alt="" aria-hidden="true" /><span class="ficha__foto-nota">${isEN ? 'Photo coming soon' : 'Foto próximamente'}</span></div><div class="ficha__body"><div class="ficha__tags"></div><h3 class="ficha__nombre"></h3><p class="ficha__precio"></p><p class="ficha__descripcion"></p></div></div>`;
+  slide.innerHTML = `<div class="ficha__card"><div class="ficha__foto"><img class="ficha__img" alt="" /><img class="ficha__ph" src="assets/brand/logo-circular-transparent.png" alt="" aria-hidden="true" /><span class="ficha__foto-nota">${L3('Foto próximamente', 'Photo coming soon', 'Фото незабаром')}</span></div><div class="ficha__body"><div class="ficha__tags"></div><h3 class="ficha__nombre"></h3><p class="ficha__precio"></p><p class="ficha__descripcion"></p></div></div>`;
   slide.querySelector('.ficha__nombre').textContent = nombre;
   slide.querySelector('.ficha__precio').textContent = item.querySelector('.price')?.textContent.trim() || '';
   const d = slide.querySelector('.ficha__descripcion');
@@ -202,7 +204,7 @@ function centrarTrack() {
 function construirTrack(item) {
   if (!fichaTrack) {
     fichaTrack = document.createElement('div'); fichaTrack.className = 'ficha__track';
-    fichaX = document.createElement('button'); fichaX.type = 'button'; fichaX.className = 'ficha__x'; fichaX.innerHTML = '&times;'; fichaX.setAttribute('aria-label', isEN ? 'Close' : 'Cerrar');
+    fichaX = document.createElement('button'); fichaX.type = 'button'; fichaX.className = 'ficha__x'; fichaX.innerHTML = '&times;'; fichaX.setAttribute('aria-label', L3('Cerrar', 'Close', 'Закрити'));
     fichaX.addEventListener('click', cerrarFicha);
     ficha.append(fichaTrack, fichaX);
     fichaTrack.addEventListener('click', (e) => { if (e.target === fichaTrack) cerrarFicha(); });
@@ -1008,10 +1010,10 @@ const WHATSAPP_NUMBER_TALLERES = '34612422574';
 // enlace > Lector, y usar .../export?format=csv&gid=...).
 // Mientras esté vacía, la carta se queda tal cual está escrita en el HTML
 // (no se toca nada) — esto es 100% opcional y no puede romper la carta actual.
-const CARTA_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1PHh0xQYdxf3YcuI2_vE2Y6lAO_Az22scKLOVm3EwilY/export?format=csv&gid=1208842099';
+const CARTA_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1kfoomnbmHi3ITIu1EZ7Fp0Jq2UB49bOS/export?format=csv&gid=2009829980';
 
 (function () {
-  if (!CARTA_SHEET_CSV_URL) return;
+  if (!CARTA_SHEET_CSV_URL || isUK) return; // la carta en ucraniano se hornea desde scripts/carta-uk.json
 
   const menuEl = document.querySelector('.menu');
   const tabsWrap = document.querySelector('.menu__tabs');
@@ -1296,4 +1298,16 @@ const ACOSO_APPS_SCRIPT_URL = '';
       .catch(() => setStatus('error', tx.net))
       .finally(() => { btn.disabled = false; });
   });
+})();
+
+// ---- Selector de idioma desplegable (cartas ES/EN/UK) ----
+(() => {
+  const menu = document.getElementById('langMenu');
+  if (!menu) return;
+  const btn = menu.querySelector('.lang__btn');
+  const list = menu.querySelector('.lang__list');
+  const set = (abierto) => { list.hidden = !abierto; btn.setAttribute('aria-expanded', String(abierto)); };
+  btn.addEventListener('click', (e) => { e.stopPropagation(); set(list.hidden); });
+  document.addEventListener('click', (e) => { if (!menu.contains(e.target)) set(false); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { set(false); btn.focus(); } });
 })();
